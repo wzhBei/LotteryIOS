@@ -8,6 +8,8 @@
 
 #import "ApiManager.h"
 
+static NSString* const HostUrl = @"";
+
 @interface ApiManager ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -47,37 +49,15 @@
                      forHTTPHeaderField:@"Content-Type"];
 }
 
-- (void)loginWithUsername:(NSString *)username
-                 passWord:(NSString *)password
-               clientCode:(NSString *)clientCode
-                pushToken:(NSString *)pushToken
-                   sucess:(RequestSucceccCallBack)successCallBack
-                   failed:(RequestFailedCallBack)failedCallBack {
-//    NSString *urlParameter = LOGIN_URL;
-//    NSDictionary *bodyParameters = @{
-//                                     APIKEY_LOGIN_ID: username,
-//                                     APIKEY_PASSWORD: password,
-//                                     APIKEY_CLIENTCD: clientCode,
-//                                     APIKEY_TOKEN: pushToken,
-//                                     APIKEY_DEVICETYPE: @"1"
-//                                     };
-//    [_manager POST:urlParameter
-//       parameters:bodyParameters
-//         progress:^(NSProgress * _Nonnull uploadProgress) {
-//             LOG(@"Is Requesting");
-//         } success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
-//            
-//             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:responseObject
-//                                                                      options:NSJSONReadingMutableLeaves error:nil];
-//             if (successCallBack) {
-//                 successCallBack(jsonDict);
-//             }
-//         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//             if (failedCallBack) {
-//                 failedCallBack(task);
-//             }
-//         }];
-    
+- (void)getLotterysWithCount:(NSInteger)count
+                conditionDic:(NSDictionary *)conditionDic
+                      sucess:(RequestSucceccCallBack)successCallBack
+                      failed:(RequestFailedCallBack)failedCallBack {
+//    _manager POST:HostUrl parameters:conditionDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        <#code#>
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        <#code#>
+//    }
 }
 
 - (void)sendPushTokenToServer:(NSString *)pushToken

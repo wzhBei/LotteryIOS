@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		55203DA646513AA757A470BA /* libPods-Lottery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A00060619B8C6B92A67FDF /* libPods-Lottery.a */; };
+		BE0E31121EBCA4F900C715B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0E31111EBCA4F900C715B3 /* Main.storyboard */; };
+		BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */; };
 		D1A5C71D1EACA9B300A220F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71C1EACA9B300A220F9 /* main.m */; };
 		D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71F1EACA9B300A220F9 /* AppDelegate.m */; };
-		D1A5C7261EACA9B300A220F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7241EACA9B300A220F9 /* Main.storyboard */; };
 		D1A5C7281EACA9B300A220F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7271EACA9B300A220F9 /* Assets.xcassets */; };
 		D1A5C72B1EACA9B300A220F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7291EACA9B300A220F9 /* LaunchScreen.storyboard */; };
 		D1A5C7331EACA9C500A220F9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7321EACA9C500A220F9 /* Podfile */; };
@@ -29,15 +30,17 @@
 		1697B8B98BD7A21D1A260193 /* Pods-Lottery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lottery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lottery/Pods-Lottery.debug.xcconfig"; sourceTree = "<group>"; };
 		54A00060619B8C6B92A67FDF /* libPods-Lottery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lottery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7E574BDB5855B23BBFC5F3 /* Pods-Lottery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lottery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lottery/Pods-Lottery.release.xcconfig"; sourceTree = "<group>"; };
+		BE0E31111EBCA4F900C715B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterIntegerModel.h; sourceTree = "<group>"; };
+		BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterIntegerModel.m; sourceTree = "<group>"; };
 		D1A5C7181EACA9B300A220F9 /* Lottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A5C71C1EACA9B300A220F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1A5C71E1EACA9B300A220F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1A5C71F1EACA9B300A220F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D1A5C7251EACA9B300A220F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1A5C7271EACA9B300A220F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1A5C72A1EACA9B300A220F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1A5C72C1EACA9B300A220F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1A5C7321EACA9C500A220F9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D1A5C7321EACA9C500A220F9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1A5C7361EACAF5700A220F9 /* CheckFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFilterViewController.h; sourceTree = "<group>"; };
 		D1A5C7371EACAF5700A220F9 /* CheckFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFilterViewController.m; sourceTree = "<group>"; };
 		D1A5C73B1EACB04800A220F9 /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
@@ -76,6 +79,14 @@
 				54A00060619B8C6B92A67FDF /* libPods-Lottery.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE0E31101EBCA4F900C715B3 /* XibStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				BE0E31111EBCA4F900C715B3 /* Main.storyboard */,
+			);
+			path = XibStoryboard;
 			sourceTree = "<group>";
 		};
 		D1A5C70F1EACA9B300A220F9 = {
@@ -128,8 +139,8 @@
 		D1A5C7341EACAF5700A220F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE0E31101EBCA4F900C715B3 /* XibStoryboard */,
 				D1A5C7351EACAF5700A220F9 /* Class */,
-				D1A5C7381EACAF5700A220F9 /* XibStoryboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,14 +156,6 @@
 				D1A5C7511EACDF4600A220F9 /* ResultViewController.m */,
 			);
 			path = Class;
-			sourceTree = "<group>";
-		};
-		D1A5C7381EACAF5700A220F9 /* XibStoryboard */ = {
-			isa = PBXGroup;
-			children = (
-				D1A5C7241EACA9B300A220F9 /* Main.storyboard */,
-			);
-			path = XibStoryboard;
 			sourceTree = "<group>";
 		};
 		D1A5C73A1EACB04800A220F9 /* Manager */ = {
@@ -180,6 +183,8 @@
 			children = (
 				D1A5C7461EACC18A00A220F9 /* FilterCellModel.h */,
 				D1A5C7471EACC18A00A220F9 /* FilterCellModel.m */,
+				BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */,
+				BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */,
 			);
 			name = Model;
 			path = ModelForShow;
@@ -268,7 +273,7 @@
 				D1A5C72B1EACA9B300A220F9 /* LaunchScreen.storyboard in Resources */,
 				D1A5C7281EACA9B300A220F9 /* Assets.xcassets in Resources */,
 				D1A5C7331EACA9C500A220F9 /* Podfile in Resources */,
-				D1A5C7261EACA9B300A220F9 /* Main.storyboard in Resources */,
+				BE0E31121EBCA4F900C715B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */,
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
@@ -344,15 +350,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D1A5C7241EACA9B300A220F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1A5C7251EACA9B300A220F9 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		D1A5C7291EACA9B300A220F9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

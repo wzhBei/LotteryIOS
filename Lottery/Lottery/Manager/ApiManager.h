@@ -18,10 +18,8 @@ typedef void (^RequestFailedCallBack)(NSURLSessionDataTask * task);
 - (instancetype)initWithUrl:(NSString *)stringUrl;
 
 // login1
-- (void)loginWithUsername:(NSString *)username
-                 passWord:(NSString *)password
-               clientCode:(NSString *)clientCode
-                pushToken:(NSString *)pushToken
+- (void)getLotterysWithCount:(NSInteger)count
+                conditionDic:(NSDictionary *)conditionDic
                    sucess:(RequestSucceccCallBack)successCallBack
                    failed:(RequestFailedCallBack)failedCallBack;
 

@@ -11,8 +11,11 @@
 
 @interface FilterCellModel : NSObject
 
-    @property (nonatomic, assign) NSInteger max;
-    @property (nonatomic, assign) NSInteger min;
-    @property (nonatomic, assign) BOOL isChecked;
-    @property (nonatomic, assign) FilterType type;
+@property (nonatomic, assign) NSInteger max;
+@property (nonatomic, assign) NSInteger min;
+@property (nonatomic, assign) BOOL isChecked;
+@property (nonatomic, assign) FilterType type;
+
+- (NSDictionary *)toConditionDic;
+
 @end
