@@ -17,7 +17,12 @@
 @end
 
 @implementation FilterCell
-    
+
+-(void)awakeFromNib {
+    self.maxTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.MinTextField.keyboardType = UIKeyboardTypeNumberPad;
+}
+
 - (IBAction)showResultAction:(id)sender {
     if (self.showResultblock) {
         self.showResultblock();
