@@ -10,6 +10,11 @@
 		55203DA646513AA757A470BA /* libPods-Lottery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A00060619B8C6B92A67FDF /* libPods-Lottery.a */; };
 		BE0E31121EBCA4F900C715B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0E31111EBCA4F900C715B3 /* Main.storyboard */; };
 		BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */; };
+		D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3801EBB6A83006A6BAF /* ResultCell.m */; };
+		D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3831EBB6B40006A6BAF /* LotteryModel.m */; };
+		D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */; };
+		D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2671EBE12A50058E8A9 /* AlertHelper.m */; };
+		D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */; };
 		D1A5C71D1EACA9B300A220F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71C1EACA9B300A220F9 /* main.m */; };
 		D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71F1EACA9B300A220F9 /* AppDelegate.m */; };
 		D1A5C7281EACA9B300A220F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7271EACA9B300A220F9 /* Assets.xcassets */; };
@@ -33,6 +38,16 @@
 		BE0E31111EBCA4F900C715B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterIntegerModel.h; sourceTree = "<group>"; };
 		BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterIntegerModel.m; sourceTree = "<group>"; };
+		D105D37F1EBB6A83006A6BAF /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
+		D105D3801EBB6A83006A6BAF /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
+		D105D3821EBB6B40006A6BAF /* LotteryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryModel.h; sourceTree = "<group>"; };
+		D105D3831EBB6B40006A6BAF /* LotteryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryModel.m; sourceTree = "<group>"; };
+		D12AF2631EBE0B820058E8A9 /* ResultTableDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableDatasource.h; sourceTree = "<group>"; };
+		D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableDatasource.m; sourceTree = "<group>"; };
+		D12AF2661EBE12A50058E8A9 /* AlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertHelper.h; sourceTree = "<group>"; };
+		D12AF2671EBE12A50058E8A9 /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
+		D188BF0D1EC09E710065B8C0 /* NSNumber+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Utils.h"; sourceTree = "<group>"; };
+		D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Utils.m"; sourceTree = "<group>"; };
 		D1A5C7181EACA9B300A220F9 /* Lottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A5C71C1EACA9B300A220F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1A5C71E1EACA9B300A220F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +169,8 @@
 				D1A5C7431EACBF1700A220F9 /* FilterCell.m */,
 				D1A5C7501EACDF4600A220F9 /* ResultViewController.h */,
 				D1A5C7511EACDF4600A220F9 /* ResultViewController.m */,
+				D105D37F1EBB6A83006A6BAF /* ResultCell.h */,
+				D105D3801EBB6A83006A6BAF /* ResultCell.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -165,6 +182,8 @@
 				D1A5C73C1EACB04800A220F9 /* ApiManager.m */,
 				D1A5C7491EACC28D00A220F9 /* SelectedFilterManager.h */,
 				D1A5C74A1EACC28D00A220F9 /* SelectedFilterManager.m */,
+				D12AF2661EBE12A50058E8A9 /* AlertHelper.h */,
+				D12AF2671EBE12A50058E8A9 /* AlertHelper.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -174,6 +193,8 @@
 			children = (
 				D1A5C7531EACDFB200A220F9 /* UIStoryboard+Utils.h */,
 				D1A5C7541EACDFB200A220F9 /* UIStoryboard+Utils.m */,
+				D188BF0D1EC09E710065B8C0 /* NSNumber+Utils.h */,
+				D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +206,8 @@
 				D1A5C7471EACC18A00A220F9 /* FilterCellModel.m */,
 				BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */,
 				BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */,
+				D105D3821EBB6B40006A6BAF /* LotteryModel.h */,
+				D105D3831EBB6B40006A6BAF /* LotteryModel.m */,
 			);
 			name = Model;
 			path = ModelForShow;
@@ -195,6 +218,8 @@
 			children = (
 				D1A5C74D1EACC50F00A220F9 /* FilterTableDatasource.h */,
 				D1A5C74E1EACC50F00A220F9 /* FilterTableDatasource.m */,
+				D12AF2631EBE0B820058E8A9 /* ResultTableDatasource.h */,
+				D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -334,12 +359,17 @@
 			files = (
 				BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */,
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
+				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
+				D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */,
 				D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */,
 				D1A5C7391EACAF5700A220F9 /* CheckFilterViewController.m in Sources */,
 				D1A5C74B1EACC28D00A220F9 /* SelectedFilterManager.m in Sources */,
+				D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */,
 				D1A5C7551EACDFB200A220F9 /* UIStoryboard+Utils.m in Sources */,
+				D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */,
+				D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */,
 				D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */,
 				D1A5C7411EACB10800A220F9 /* AppSetting.m in Sources */,
 				D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */,

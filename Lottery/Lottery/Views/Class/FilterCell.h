@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "FilterCellModel.h"
-
+static NSInteger const TextFieldTagMinPrefix = 1000;
+static NSInteger const TextFieldTagMaxPrefix = 1100;
 static NSString* const FilterCellIdentifier = @"FilterCell";
 
 @interface FilterCell : UITableViewCell
 
 @property (nonatomic, copy) void(^showResultblock)();
     
-    - (void)updateWithModel:(FilterCellModel *)model;
+- (void)updateWithModel:(FilterCellModel *)model
+      textFieldDelegate:(id<UITextFieldDelegate>)delegate;
     
 @end

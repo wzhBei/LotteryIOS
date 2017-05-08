@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AppSetting.h"
 
-@interface FilterTableDatasource : NSObject<UITableViewDelegate, UITableViewDataSource>
+@interface FilterTableDatasource : NSObject<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
+@property (nonatomic, strong, readonly) NSDictionary *selectedConditions;
 - (instancetype)initWithTableView:(UITableView *)tableView;
     @property (weak, nonatomic) UIViewController *delegateController;
-    
+
+- (void)dismissKeyboard;
+
+
 @end

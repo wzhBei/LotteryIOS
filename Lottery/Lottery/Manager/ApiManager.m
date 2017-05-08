@@ -7,8 +7,10 @@
 //
 
 #import "ApiManager.h"
+#import "LotteryModel.h"
 
-static NSString* const HostUrl = @"";
+static NSString* const HostUrl = @"http://localhost/SpringRestHibernateExample";
+static NSString* const GetLottery = @"getLotterys";
 
 @interface ApiManager ()
 
@@ -19,20 +21,18 @@ static NSString* const HostUrl = @"";
 
 @implementation ApiManager
 
-- (instancetype)initWithUrl:(NSString *)stringUrl {
+- (instancetype)init{
     self = [super init];
-    
-    _stringUrl = stringUrl;
     [self commonInit];
     return self;
 }
 
 - (void)commonInit {
-    _manager = [[AFHTTPSessionManager alloc] initWithBaseURL: [NSURL URLWithString:self.stringUrl]];
+    _manager = [[AFHTTPSessionManager alloc] initWithBaseURL: [NSURL URLWithString:HostUrl]];
     // response 初始化
     _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     // request 初始化
-    _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     // response可以接受的content-type类型
     _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:
                                                           @"application/json",
@@ -43,21 +43,31 @@ static NSString* const HostUrl = @"";
                                                           @"text/xml",
                                                           @"text/plain",
                                                           nil];
-//    [_manager.requestSerializer setValue:@"UTF-8"
-//                     forHTTPHeaderField:@"Accept-Charset"];
-    [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded"
+    [_manager.requestSerializer setValue:@"UTF-8"
+                     forHTTPHeaderField:@"Accept-Charset"];
+    [_manager.requestSerializer setValue:@"application/json"
                      forHTTPHeaderField:@"Content-Type"];
 }
+
 
 - (void)getLotterysWithCount:(NSInteger)count
                 conditionDic:(NSDictionary *)conditionDic
                       sucess:(RequestSucceccCallBack)successCallBack
                       failed:(RequestFailedCallBack)failedCallBack {
-//    _manager POST:HostUrl parameters:conditionDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        <#code#>
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        <#code#>
-//    }
+    [_manager POST:GetLottery parameters:conditionDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+
+        NSArray *models = [MTLJSONAdapter modelsOfClass:[LotteryModel class] fromJSONArray:jsonArray error:&error];
+        NSLog(@"%@", models);
+        if (successCallBack) {
+            successCallBack(models);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failedCallBack) {
+            failedCallBack(task);
+        }
+    }];
 }
 
 - (void)sendPushTokenToServer:(NSString *)pushToken

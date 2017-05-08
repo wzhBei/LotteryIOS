@@ -10,6 +10,6 @@
 
 @interface UIStoryboard (Utils)
 
-    + (UIViewController *)createVCWithStroyboardName:(NSString *)storyboardName
-                            identifier:(NSString *)identifier;
++ (UIViewController *)createVCWithStroyboardName:(NSString *)storyboardName
+                        identifier:(NSString *)identifier;
 @end

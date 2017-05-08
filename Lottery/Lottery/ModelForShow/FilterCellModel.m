@@ -18,28 +18,28 @@
     switch (self.type) {
         case FilterTypeSum:
             return @{
-                     @"sumMin" : @(self.min),
-                     @"sumMax" : @(self.max)
+                     @"sumMin" : [@(self.min) stringValue],
+                     @"sumMax" : [@(self.max) stringValue]
                      };
         case FilterTypeCRS:
             return @{
-                     @"crsMin" : @(self.min),
-                     @"crsMax" : @(self.max)
+                     @"crsMin" : [@(self.min) stringValue],
+                     @"crsMax" : [@(self.max) stringValue]
                      };
         case FilterTypeODD:
             return @{
-                     @"oddMin" : @(self.min),
-                     @"oddMax" : @(self.max)
+                     @"oddMin" : [@(self.min) stringValue],
+                     @"oddMax" : [@(self.max) stringValue]
                      };
         case FilterTypeINT:
             return @{
-                     @"intMin" : @(self.min),
-                     @"intMax" : @(self.max)
+                     @"intMin" : [@(self.min) stringValue],
+                     @"intMax" : [@(self.max) stringValue]
                      };
         case FilterTypeCON:
             return @{
-                     @"conMin" : @(self.min),
-                     @"conMax" : @(self.max)
+                     @"conMin" : [@(self.min) stringValue],
+                     @"conMax" : [@(self.max) stringValue]
                      };
         default:
             break;

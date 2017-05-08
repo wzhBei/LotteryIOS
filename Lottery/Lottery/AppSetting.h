@@ -14,6 +14,9 @@ typedef enum {
     FilterTypeCON = 4
 } FilterType;
 
+#define WEAK_SELF __weak typeof(self) SELF = self
+
+
 #import <Foundation/Foundation.h>
 
 // singletonクラス定義用共通部品
