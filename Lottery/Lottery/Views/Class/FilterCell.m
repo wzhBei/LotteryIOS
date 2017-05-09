@@ -14,6 +14,7 @@
     @property (weak, nonatomic) IBOutlet UITextField *MinTextField;
     @property (weak, nonatomic) IBOutlet UIButton *commitButton;
     @property (weak, nonatomic) FilterCellModel *model;
+    @property (weak, nonatomic) IBOutlet UILabel *intputRangeLabel;
 @end
 
 @implementation FilterCell
@@ -22,9 +23,7 @@
     [super awakeFromNib];
     self.maxTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.MinTextField.keyboardType = UIKeyboardTypeNumberPad;
-    
-//    self.MinTextField.placeholder = @"0";
-//    self.maxTextField.placeholder = @"0";
+    self.intputRangeLabel.text = [self rangeString];
 }
 
 - (IBAction)showResultAction:(id)sender {
@@ -54,18 +53,61 @@
 - (NSString *)buttonTitle {
     switch (self.model.type) {
         case FilterTypeSum:
-            return @"SUM过滤";
+            return @"SUMFilter";
         case FilterTypeCRS:
-            return @"CRS过滤";
+            return @"CRSFilter";
         case FilterTypeODD:
-            return @"ODD过滤";
+            return @"ODDFilter";
         case FilterTypeINT:
-            return @"INT过滤";
+            return @"INTFilter";
         case FilterTypeCON:
-            return @"CON过滤";
+            return @"CONFilter";
         default:
         return @"";
     }
+}
+
+- (NSString *)rangeString {
+    NSString *rangeString;
+    NSInteger min = 0;
+    NSInteger max = 0;
+   
+    switch (self.model.type) {
+        case FilterTypeSum:
+        {
+            min = SumMin;
+            max = SumMax;
+        }
+            break;
+        case FilterTypeCRS:
+        {
+            min = CrsMin;
+            max = CrsMax;
+        }
+            break;
+        case FilterTypeODD:
+        {
+            min = OddMin;
+            max = OddMax;
+        }
+            break;
+        case FilterTypeINT:
+        {
+            min = IntervalMin;
+            max = IntervalMax;
+        }
+            break;
+        case FilterTypeCON:
+        {
+            min = ConMin;
+            max = ConMax;
+        }
+            break;
+        default:
+            return @"";
+    }
+    rangeString = [NSString stringWithFormat:@"%ld ~ %ld", min, max];
+    return rangeString;
 }
 
 

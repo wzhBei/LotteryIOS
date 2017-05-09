@@ -16,6 +16,20 @@ typedef enum {
 
 #define WEAK_SELF __weak typeof(self) SELF = self
 
+#define SumMax 191
+#define SumMin  21
+
+#define  CrsMax 35
+#define  CrsMin 5
+
+#define  OddMax 6
+#define  OddMin 0
+
+#define  IntervalMax 31
+#define  IntervalMin 1
+
+#define  ConMax 5
+#define  ConMin 0
 
 #import <Foundation/Foundation.h>
 

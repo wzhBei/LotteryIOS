@@ -23,25 +23,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="164" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkN-qq-JOR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="156" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkN-qq-JOR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" rowHeight="100" id="UJf-js-drb" customClass="FilterCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" rowHeight="156" id="UJf-js-drb" customClass="FilterCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UJf-js-drb" id="EJ5-TG-kV2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked" highlightedImage="Checked" translatesAutoresizingMaskIntoConstraints="NO" id="9kH-zM-Z8G">
-                                                    <rect key="frame" x="18" y="27.5" width="45" height="45"/>
+                                                    <rect key="frame" x="18" y="55.5" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9kH-zM-Z8G" secondAttribute="height" multiplier="1:1" id="5Cj-mg-A5U"/>
                                                         <constraint firstAttribute="height" constant="45" id="pUm-KJ-lxk"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmg-EZ-5Gz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmg-EZ-5Gz">
                                                     <rect key="frame" x="93" y="11" width="38" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="6so-Wm-UfK"/>
@@ -52,15 +52,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeO-nT-sSH">
-                                                    <rect key="frame" x="255" y="32" width="102" height="36"/>
+                                                    <rect key="frame" x="255" y="60" width="102" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Sum Result"/>
                                                     <connections>
                                                         <action selector="showResultAction:" destination="UJf-js-drb" eventType="touchUpInside" id="JDU-xN-TOG"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJX-l5-AVx">
-                                                    <rect key="frame" x="93" y="58.5" width="38" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJX-l5-AVx">
+                                                    <rect key="frame" x="93" y="62.5" width="38" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,36 +75,53 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52O-yn-qaX">
-                                                    <rect key="frame" x="146" y="58.5" width="50" height="30"/>
+                                                    <rect key="frame" x="146" y="62.5" width="50" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入力範囲：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ber-s9-zLz">
+                                                    <rect key="frame" x="93" y="115" width="87" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-fP-nmc">
+                                                    <rect key="frame" x="190" y="115" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9kH-zM-Z8G" firstAttribute="centerY" secondItem="EJ5-TG-kV2" secondAttribute="centerY" id="4Th-5M-j9o"/>
                                                 <constraint firstItem="XJX-l5-AVx" firstAttribute="height" secondItem="Dmg-EZ-5Gz" secondAttribute="height" id="6Su-eQ-OY5"/>
                                                 <constraint firstItem="CH5-0w-ZCO" firstAttribute="bottom" secondItem="Dmg-EZ-5Gz" secondAttribute="bottom" id="6mD-PT-eFp"/>
                                                 <constraint firstItem="52O-yn-qaX" firstAttribute="bottom" secondItem="XJX-l5-AVx" secondAttribute="bottom" id="6px-Mg-gsd"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="XJX-l5-AVx" secondAttribute="bottom" constant="3" id="8Wb-LN-1LI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XJX-l5-AVx" secondAttribute="bottom" constant="55" id="8Wb-LN-1LI"/>
                                                 <constraint firstItem="XJX-l5-AVx" firstAttribute="width" secondItem="Dmg-EZ-5Gz" secondAttribute="width" id="HBh-iO-2Rd"/>
                                                 <constraint firstItem="CH5-0w-ZCO" firstAttribute="leading" secondItem="Dmg-EZ-5Gz" secondAttribute="trailing" constant="15" id="Lfs-YV-1x1"/>
                                                 <constraint firstItem="9kH-zM-Z8G" firstAttribute="leading" secondItem="EJ5-TG-kV2" secondAttribute="leadingMargin" constant="10" id="ORq-qD-0fJ"/>
+                                                <constraint firstItem="rJD-fP-nmc" firstAttribute="top" secondItem="ber-s9-zLz" secondAttribute="top" id="OtA-3m-7pu"/>
+                                                <constraint firstItem="ber-s9-zLz" firstAttribute="top" secondItem="XJX-l5-AVx" secondAttribute="bottom" constant="22.5" id="S7l-db-1AM"/>
                                                 <constraint firstItem="Dmg-EZ-5Gz" firstAttribute="leading" secondItem="9kH-zM-Z8G" secondAttribute="trailing" constant="30" id="TT7-HD-M4N"/>
+                                                <constraint firstItem="ber-s9-zLz" firstAttribute="leading" secondItem="XJX-l5-AVx" secondAttribute="leading" id="Yow-eR-8qz"/>
                                                 <constraint firstItem="JeO-nT-sSH" firstAttribute="centerY" secondItem="EJ5-TG-kV2" secondAttribute="centerY" id="ZMg-a3-JgP"/>
                                                 <constraint firstItem="52O-yn-qaX" firstAttribute="leading" secondItem="XJX-l5-AVx" secondAttribute="trailing" constant="15" id="eJ3-dn-hx2"/>
                                                 <constraint firstItem="Dmg-EZ-5Gz" firstAttribute="top" secondItem="EJ5-TG-kV2" secondAttribute="topMargin" constant="3" id="i53-Uc-v4x"/>
                                                 <constraint firstItem="XJX-l5-AVx" firstAttribute="leading" secondItem="Dmg-EZ-5Gz" secondAttribute="leading" id="mSN-hS-8Ad"/>
+                                                <constraint firstItem="rJD-fP-nmc" firstAttribute="leading" secondItem="ber-s9-zLz" secondAttribute="trailing" constant="10" id="s4p-eQ-cZb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JeO-nT-sSH" secondAttribute="trailing" constant="10" id="ugV-0H-DMR"/>
                                                 <constraint firstItem="52O-yn-qaX" firstAttribute="width" secondItem="CH5-0w-ZCO" secondAttribute="width" id="yvY-bP-zzC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="MinTextField" destination="52O-yn-qaX" id="Lsz-XB-zbg"/>
+                                            <outlet property="MinTextField" destination="CH5-0w-ZCO" id="GzT-0B-pJd"/>
                                             <outlet property="checkMark" destination="9kH-zM-Z8G" id="193-VA-4cW"/>
                                             <outlet property="commitButton" destination="JeO-nT-sSH" id="E7D-ow-eVZ"/>
-                                            <outlet property="maxTextField" destination="CH5-0w-ZCO" id="N91-BX-dwk"/>
+                                            <outlet property="intputRangeLabel" destination="rJD-fP-nmc" id="ahG-Fv-4m0"/>
+                                            <outlet property="maxTextField" destination="52O-yn-qaX" id="S0S-LD-En7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
