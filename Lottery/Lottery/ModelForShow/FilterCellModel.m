@@ -47,6 +47,45 @@
 }
 
 - (BOOL)isValid {
+    switch (self.type) {
+            if (self.min > self.max) {
+                return false;
+            }
+            
+        case FilterTypeSum:
+            return
+            self.min >= 21 &&
+            self.min <= 190 * 3 &&
+            self.max > 21 &&
+            self.max <= 191;
+        case FilterTypeCRS:
+            return
+            self.min >= 5 &&
+            self.min <= 35 &&
+            self.max > 5 &&
+            self.max <= 35;
+            
+        case FilterTypeODD:
+            return
+            self.min >= 0 &&
+            self.min <= 6 &&
+            self.max > 5 &&
+            self.max <= 6;
+        case FilterTypeINT:
+            return
+            self.min >= 5 &&
+            self.min <= 35 &&
+            self.max > 5 &&
+            self.max <= 35;
+        case FilterTypeCON:
+            return @{
+                     @"conMin" : [@(self.min) stringValue],
+                     @"conMax" : [@(self.max) stringValue]
+                     };
+        default:
+            break;
+    }
+
     return self.max > self.min;
 }
 

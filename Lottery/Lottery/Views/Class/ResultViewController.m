@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = @"結果";
     self.tableview.dataSource = self.datasource;
     self.tableview.delegate = self.datasource;
     [self.datasource updateDatasource:self.models];

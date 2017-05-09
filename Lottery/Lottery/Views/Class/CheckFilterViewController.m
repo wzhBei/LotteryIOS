@@ -30,8 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Loto6";
     self.navigationController.navigationBarHidden = NO;
-    
+     self.automaticallyAdjustsScrollViewInsets = NO;
     self.datasource = [[FilterTableDatasource alloc] initWithTableView:self.tableview];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];

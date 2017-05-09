@@ -14,6 +14,11 @@
 
 SINGLETON_DEFINE(AlertHelper);
 
+- (void)showAlertWithTitle:(NSString *)title
+                   message:(NSString *)message
+                        ok:(void(^)())okAction
+                    cancel:(void(^)())cancelAction;
+
 - (void)showHud;
 
 - (void)dismissHud;

@@ -31,7 +31,6 @@
     self = [super init];
     tableView.delegate = self;
     tableView.dataSource = self;
-    
     self.tableView = tableView;
     
     return self;
@@ -47,9 +46,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FilterCell *cell = [tableView dequeueReusableCellWithIdentifier:FilterCellIdentifier];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     __weak FilterTableDatasource *weakSelf = self;
     cell.showResultblock = ^ {
-            ResultViewController *resultController = [UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
+            ResultViewController *resultController = (ResultViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
             [weakSelf.delegateController.navigationController pushViewController:resultController animated:YES];
     };
     FilterCellModel *model = self.datasource[indexPath.row];
