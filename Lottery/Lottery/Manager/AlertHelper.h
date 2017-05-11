@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppSetting.h"
-
+#import "FilterCellModel.h"
 
 @interface AlertHelper : NSObject
 
@@ -22,5 +22,7 @@ SINGLETON_DEFINE(AlertHelper);
 - (void)showHud;
 
 - (void)dismissHud;
+
+- (void)showFilterInvalidWithModel:(FilterCellModel *)model;
 
 @end

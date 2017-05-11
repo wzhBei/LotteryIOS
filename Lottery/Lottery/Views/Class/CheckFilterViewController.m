@@ -34,6 +34,7 @@
     self.navigationController.navigationBarHidden = NO;
      self.automaticallyAdjustsScrollViewInsets = NO;
     self.datasource = [[FilterTableDatasource alloc] initWithTableView:self.tableview];
+    self.datasource.delegateController = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -84,19 +85,30 @@
 }
 
 - (IBAction)showMultipleResult:(id)sender {
+    if (self.datasource.selectedConditions.count == 0) {
+        [[AlertHelper sharedInstance] showAlertWithTitle:@"ご注意" message:@"Filter条件を選ばなければ、ランダムのラキー数字を生じてよろしいでようか？" ok:^{
+            [self doFilter];
+        } cancel:^{
+        }];
+        return;
+    }
+    [self doFilter];
+}
+
+- (void)doFilter {
     ApiManager *manager = [[ApiManager alloc] init];
     [[AlertHelper sharedInstance] showHud];
     __weak CheckFilterViewController *weakSelf = self;
     [manager getLotterysWithCount:5
                      conditionDic:self.datasource.selectedConditions sucess:^(NSArray *models) {
-        ResultViewController *resultController = (ResultViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
-            [resultController updateWithDatasource:models];
-            [weakSelf.navigationController pushViewController:resultController animated:YES];
-        [[AlertHelper sharedInstance] dismissHud];
-    } failed:^(NSURLSessionDataTask *task) {
-        [[AlertHelper sharedInstance] dismissHud];
-
-    }];
+                         ResultViewController *resultController = (ResultViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
+                         [resultController updateWithDatasource:models];
+                         [weakSelf.navigationController pushViewController:resultController animated:YES];
+                         [[AlertHelper sharedInstance] dismissHud];
+                     } failed:^(NSURLSessionDataTask *task) {
+                         [[AlertHelper sharedInstance] dismissHud];
+                         
+                     }];
 }
 
 - (void)didReceiveMemoryWarning {

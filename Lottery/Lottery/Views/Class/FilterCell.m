@@ -13,7 +13,7 @@
     @property (weak, nonatomic) IBOutlet UITextField *maxTextField;
     @property (weak, nonatomic) IBOutlet UITextField *MinTextField;
     @property (weak, nonatomic) IBOutlet UIButton *commitButton;
-    @property (weak, nonatomic) FilterCellModel *model;
+    @property (strong, nonatomic) FilterCellModel *model;
     @property (weak, nonatomic) IBOutlet UILabel *intputRangeLabel;
 @end
 
@@ -23,7 +23,7 @@
     [super awakeFromNib];
     self.maxTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.MinTextField.keyboardType = UIKeyboardTypeNumberPad;
-    self.intputRangeLabel.text = [self rangeString];
+    
 }
 
 - (IBAction)showResultAction:(id)sender {
@@ -39,6 +39,7 @@
     self.maxTextField.text = [NSString stringWithFormat:@"%ld", model.max];
     self.MinTextField.text = [NSString stringWithFormat:@"%ld", model.min];
     self.checkMark.hidden = !model.isChecked;
+    
     [self.commitButton setTitle:[self buttonTitle] forState:UIControlStateNormal];
     
     self.MinTextField.tag = TextFieldTagMinPrefix + self.model.type;
@@ -47,7 +48,7 @@
     self.MinTextField.delegate = delegate;
     self.maxTextField.delegate = delegate;
     
-
+    self.intputRangeLabel.text = [self rangeString];
 }
     
 - (NSString *)buttonTitle {
@@ -109,6 +110,7 @@
     rangeString = [NSString stringWithFormat:@"%ld ~ %ld", min, max];
     return rangeString;
 }
+
 
 
 @end

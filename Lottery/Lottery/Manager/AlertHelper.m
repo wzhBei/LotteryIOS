@@ -13,6 +13,11 @@
 
 SINGLETON_IMPL(AlertHelper);
 
+- (void)showFilterInvalidWithModel:(FilterCellModel *)model {
+    NSString *alertString = [NSString stringWithFormat:@"%@で洗い出す場合に、ルールにご参考してください.", [model conditionString]];
+    [[AlertHelper sharedInstance] showAlertWithTitle:@"確認" message:alertString ok:^{
+    } cancel:nil];
+}
 
 - (void)showAlertWithTitle:(NSString *)title
                    message:(NSString *)message

@@ -86,4 +86,54 @@
 
 }
 
+- (void)setType:(FilterType)type {
+    _type = type;
+    switch (type) {
+        case FilterTypeSum:
+        {
+            self.min = SumMin;
+            self.max = SumMax;
+        }
+            break;
+        case FilterTypeCRS:
+        {
+            self.min = CrsMin;
+            self.max = CrsMax;
+        }
+            break;
+        case FilterTypeODD:
+        {
+            self.min = OddMin;
+            self.max = OddMax;
+        }
+            break;
+        case FilterTypeINT:
+        {
+            self.min = IntervalMin;
+            self.max = IntervalMax;
+        }
+            break;
+        case FilterTypeCON:
+        {
+            self.min = ConMin;
+            self.max = ConMax;
+        }
+            break;
+    }
+}
+
+- (NSString *)conditionString {
+    switch (self.type) {
+        case FilterTypeSum:
+            return @"SUM";
+        case FilterTypeCRS:
+            return @"CRS";
+        case FilterTypeODD:
+            return @"ODD";
+        case FilterTypeINT:
+            return @"INTERVAL";
+        case FilterTypeCON:
+            return @"CON";
+    }
+}
 @end

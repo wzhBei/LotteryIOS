@@ -11,6 +11,9 @@
 #import "SelectedFilterManager.h"
 #import "ResultViewController.h"
 #import "UIStoryboard+Utils.h"
+#import "AlertHelper.h"
+#import "CheckFilterViewController.h"
+#import "ApiManager.h"
 
 @interface FilterTableDatasource()
 
@@ -48,13 +51,34 @@
     FilterCell *cell = [tableView dequeueReusableCellWithIdentifier:FilterCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     __weak FilterTableDatasource *weakSelf = self;
+    __weak FilterCellModel *model = self.datasource[indexPath.row];
+
     cell.showResultblock = ^ {
-            ResultViewController *resultController = (ResultViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
-            [weakSelf.delegateController.navigationController pushViewController:resultController animated:YES];
+        if (model.isValid) {
+            [weakSelf doFilterWithModel:model];
+        } else {
+            [[AlertHelper sharedInstance] showFilterInvalidWithModel:model];
+            return;
+        }
     };
-    FilterCellModel *model = self.datasource[indexPath.row];
     [cell updateWithModel:model textFieldDelegate:self];
     return cell;
+}
+
+- (void)doFilterWithModel:(FilterCellModel *)model {
+    ApiManager *manager = [[ApiManager alloc] init];
+    [[AlertHelper sharedInstance] showHud];
+    __weak CheckFilterViewController *weakSelf = (CheckFilterViewController *)self.delegateController;
+    [manager getLotterysWithCount:5
+                     conditionDic:model.toConditionDic sucess:^(NSArray *models) {
+                         ResultViewController *resultController = (ResultViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ResultViewController"];
+                         [resultController updateWithDatasource:models];
+                         [weakSelf.navigationController pushViewController:resultController animated:YES];
+                         [[AlertHelper sharedInstance] dismissHud];
+                     } failed:^(NSURLSessionDataTask *task) {
+                         [[AlertHelper sharedInstance] dismissHud];
+                         
+                     }];
 }
 
 - (NSArray *)datasource {
@@ -70,7 +94,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     FilterCellModel *model = self.datasource[indexPath.row];
+    if (![model isValid]) {
+        [[AlertHelper sharedInstance] showFilterInvalidWithModel:model];
+        return;
+    }
     model.isChecked = !model.isChecked;
     FilterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell updateWithModel:model textFieldDelegate:self];

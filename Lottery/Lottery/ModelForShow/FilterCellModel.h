@@ -18,4 +18,8 @@
 
 - (NSDictionary *)toConditionDic;
 
+- (BOOL)isValid;
+
+- (NSString *)conditionString;
+
 @end
