@@ -15,6 +15,14 @@
 		D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */; };
 		D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2671EBE12A50058E8A9 /* AlertHelper.m */; };
 		D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */; };
+		D188BF131EC7EA9E0065B8C0 /* ShowBaseFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF121EC7EA9E0065B8C0 /* ShowBaseFilterCell.m */; };
+		D188BF161EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF151EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m */; };
+		D188BF191EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF181EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m */; };
+		D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF1B1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m */; };
+		D188BF1F1EC802F10065B8C0 /* LotoSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF1E1EC802F10065B8C0 /* LotoSelectViewController.m */; };
+		D188BF231EC84EF60065B8C0 /* DetailLikeNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF221EC84EF60065B8C0 /* DetailLikeNumberCell.m */; };
+		D188BF261EC85EB20065B8C0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF251EC85EB20065B8C0 /* BaseViewController.m */; };
+		D188BF281EC887B10065B8C0 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D188BF271EC887B10065B8C0 /* FilterCell.xib */; };
 		D1A5C71D1EACA9B300A220F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71C1EACA9B300A220F9 /* main.m */; };
 		D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C71F1EACA9B300A220F9 /* AppDelegate.m */; };
 		D1A5C7281EACA9B300A220F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1A5C7271EACA9B300A220F9 /* Assets.xcassets */; };
@@ -48,6 +56,21 @@
 		D12AF2671EBE12A50058E8A9 /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
 		D188BF0D1EC09E710065B8C0 /* NSNumber+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Utils.h"; sourceTree = "<group>"; };
 		D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Utils.m"; sourceTree = "<group>"; };
+		D188BF111EC7EA9E0065B8C0 /* ShowBaseFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowBaseFilterCell.h; sourceTree = "<group>"; };
+		D188BF121EC7EA9E0065B8C0 /* ShowBaseFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowBaseFilterCell.m; sourceTree = "<group>"; };
+		D188BF141EC7EBF20065B8C0 /* ShowEachNumberFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowEachNumberFilterCell.h; sourceTree = "<group>"; };
+		D188BF151EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowEachNumberFilterCell.m; sourceTree = "<group>"; };
+		D188BF171EC7EC0E0065B8C0 /* ShowLuckyNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowLuckyNumberCell.h; sourceTree = "<group>"; };
+		D188BF181EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowLuckyNumberCell.m; sourceTree = "<group>"; };
+		D188BF1A1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckDetailFilterViewController.h; sourceTree = "<group>"; };
+		D188BF1B1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDetailFilterViewController.m; sourceTree = "<group>"; };
+		D188BF1D1EC802F10065B8C0 /* LotoSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotoSelectViewController.h; sourceTree = "<group>"; };
+		D188BF1E1EC802F10065B8C0 /* LotoSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotoSelectViewController.m; sourceTree = "<group>"; };
+		D188BF211EC84EF60065B8C0 /* DetailLikeNumberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLikeNumberCell.h; sourceTree = "<group>"; };
+		D188BF221EC84EF60065B8C0 /* DetailLikeNumberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLikeNumberCell.m; sourceTree = "<group>"; };
+		D188BF241EC85EB20065B8C0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		D188BF251EC85EB20065B8C0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D188BF271EC887B10065B8C0 /* FilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		D1A5C7181EACA9B300A220F9 /* Lottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A5C71C1EACA9B300A220F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1A5C71E1EACA9B300A220F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,8 +123,31 @@
 			isa = PBXGroup;
 			children = (
 				BE0E31111EBCA4F900C715B3 /* Main.storyboard */,
+				D188BF271EC887B10065B8C0 /* FilterCell.xib */,
 			);
 			path = XibStoryboard;
+			sourceTree = "<group>";
+		};
+		D188BF101EC7EA210065B8C0 /* ResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				D188BF111EC7EA9E0065B8C0 /* ShowBaseFilterCell.h */,
+				D188BF121EC7EA9E0065B8C0 /* ShowBaseFilterCell.m */,
+				D188BF141EC7EBF20065B8C0 /* ShowEachNumberFilterCell.h */,
+				D188BF151EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m */,
+				D188BF171EC7EC0E0065B8C0 /* ShowLuckyNumberCell.h */,
+				D188BF181EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m */,
+			);
+			path = ResultCell;
+			sourceTree = "<group>";
+		};
+		D188BF201EC84E870065B8C0 /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				D188BF211EC84EF60065B8C0 /* DetailLikeNumberCell.h */,
+				D188BF221EC84EF60065B8C0 /* DetailLikeNumberCell.m */,
+			);
+			path = DetailCell;
 			sourceTree = "<group>";
 		};
 		D1A5C70F1EACA9B300A220F9 = {
@@ -163,6 +209,8 @@
 		D1A5C7351EACAF5700A220F9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				D188BF201EC84E870065B8C0 /* DetailCell */,
+				D188BF101EC7EA210065B8C0 /* ResultCell */,
 				D1A5C7361EACAF5700A220F9 /* CheckFilterViewController.h */,
 				D1A5C7371EACAF5700A220F9 /* CheckFilterViewController.m */,
 				D1A5C7421EACBF1700A220F9 /* FilterCell.h */,
@@ -171,6 +219,12 @@
 				D1A5C7511EACDF4600A220F9 /* ResultViewController.m */,
 				D105D37F1EBB6A83006A6BAF /* ResultCell.h */,
 				D105D3801EBB6A83006A6BAF /* ResultCell.m */,
+				D188BF1A1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.h */,
+				D188BF1B1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m */,
+				D188BF1D1EC802F10065B8C0 /* LotoSelectViewController.h */,
+				D188BF1E1EC802F10065B8C0 /* LotoSelectViewController.m */,
+				D188BF241EC85EB20065B8C0 /* BaseViewController.h */,
+				D188BF251EC85EB20065B8C0 /* BaseViewController.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -267,7 +321,7 @@
 				TargetAttributes = {
 					D1A5C7171EACA9B300A220F9 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 47XB9KWEAJ;
+						DevelopmentTeam = 3YDR7T8879;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -299,6 +353,7 @@
 				D1A5C7281EACA9B300A220F9 /* Assets.xcassets in Resources */,
 				D1A5C7331EACA9C500A220F9 /* Podfile in Resources */,
 				BE0E31121EBCA4F900C715B3 /* Main.storyboard in Resources */,
+				D188BF281EC887B10065B8C0 /* FilterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,21 +413,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */,
+				D188BF261EC85EB20065B8C0 /* BaseViewController.m in Sources */,
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
 				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
 				D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */,
+				D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */,
 				D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */,
+				D188BF131EC7EA9E0065B8C0 /* ShowBaseFilterCell.m in Sources */,
 				D1A5C7391EACAF5700A220F9 /* CheckFilterViewController.m in Sources */,
 				D1A5C74B1EACC28D00A220F9 /* SelectedFilterManager.m in Sources */,
 				D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */,
 				D1A5C7551EACDFB200A220F9 /* UIStoryboard+Utils.m in Sources */,
+				D188BF231EC84EF60065B8C0 /* DetailLikeNumberCell.m in Sources */,
 				D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */,
+				D188BF1F1EC802F10065B8C0 /* LotoSelectViewController.m in Sources */,
 				D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */,
 				D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */,
 				D1A5C7411EACB10800A220F9 /* AppSetting.m in Sources */,
+				D188BF161EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m in Sources */,
 				D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */,
+				D188BF191EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m in Sources */,
 				D1A5C71D1EACA9B300A220F9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +546,7 @@
 			baseConfigurationReference = 1697B8B98BD7A21D1A260193 /* Pods-Lottery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 47XB9KWEAJ;
+				DEVELOPMENT_TEAM = 3YDR7T8879;
 				INFOPLIST_FILE = Lottery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wzh.ios.employer.Lottery;
@@ -497,7 +559,7 @@
 			baseConfigurationReference = 9D7E574BDB5855B23BBFC5F3 /* Pods-Lottery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 47XB9KWEAJ;
+				DEVELOPMENT_TEAM = 3YDR7T8879;
 				INFOPLIST_FILE = Lottery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wzh.ios.employer.Lottery;

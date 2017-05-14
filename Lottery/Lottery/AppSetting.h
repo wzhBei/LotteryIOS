@@ -11,24 +11,30 @@ typedef enum {
     FilterTypeCRS = 1,
     FilterTypeODD = 2,
     FilterTypeINT = 3,
-    FilterTypeCON = 4
+    FilterTypeCON = 4,
+    FilterNumber1 = 5,
+    FilterNumber2 = 6,
+    FilterNumber3 = 7,
+    FilterNumber4 = 8,
+    FilterNumber5 = 9,
+    FilterNumber6 = 10
 } FilterType;
 
 #define WEAK_SELF __weak typeof(self) SELF = self
 
-#define SumMax 191
-#define SumMin  21
+#define SumMax 238
+#define SumMin  28
 
-#define  CrsMax 35
-#define  CrsMin 5
+#define  CrsMax 36
+#define  CrsMin 6
 
-#define  OddMax 6
+#define  OddMax 7
 #define  OddMin 0
 
 #define  IntervalMax 31
 #define  IntervalMin 1
 
-#define  ConMax 5
+#define  ConMax 6
 #define  ConMin 0
 
 #import <Foundation/Foundation.h>

@@ -13,6 +13,8 @@
 #import "AlertHelper.h"
 #import "ResultViewController.h"
 #import "AppSetting.h"
+#import "CheckDetailFilterViewController.h"
+#import "SelectedFilterManager.h"
 
 @interface CheckFilterViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -28,60 +30,54 @@
     [self.datasource dismissKeyboard];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self customizeBackbar];
     self.title = @"Loto6";
     self.navigationController.navigationBarHidden = NO;
      self.automaticallyAdjustsScrollViewInsets = NO;
     self.datasource = [[FilterTableDatasource alloc] initWithTableView:self.tableview];
     self.datasource.delegateController = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
     
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification {
-    if (self.buttonBottom.constant > 0) {
-        return;
-    }
-    // 获取通知的信息字典
-    NSDictionary *userInfo = [notification userInfo];
-    
-    // 获取键盘弹出后的rect
-    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    
-    // 获取键盘弹出动画时间
-    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    
-    [UIView animateWithDuration:animationDuration animations:^{
-        self.buttonBottom.constant = CGRectGetHeight(keyboardRect);
-        [self.view layoutIfNeeded];
-    }];
 
-    // do something...
+- (void)customizeBackbar {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(goback:) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 20, 20);
+    [btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = btnItem;
 }
 
+- (void)goback:(id)sender {
+    [[SelectedFilterManager sharedInstance] resetAllSelections];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
-- (void)keyboardWillHide:(NSNotification *)notification {
-    
-    // 获取通知信息字典
-    NSDictionary* userInfo = [notification userInfo];
-    
-    // 获取键盘隐藏动画时间
-    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    
-    [UIView animateWithDuration:animationDuration animations:^{
+// Override BaseviewController
+- (void)keyboardWillHideIn:(NSTimeInterval)timeInterval {
+    [UIView animateWithDuration:timeInterval animations:^{
         self.buttonBottom.constant = 0;
         [self.view layoutIfNeeded];
     }];
-    
+}
+
+- (void)keyboardWillShowIn:(NSTimeInterval)timeInterval rect:(CGRect)rect{
+    [UIView animateWithDuration:timeInterval animations:^{
+        self.buttonBottom.constant = CGRectGetHeight(rect);
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (IBAction)showMultipleResult:(id)sender {
@@ -109,6 +105,11 @@
                          [[AlertHelper sharedInstance] dismissHud];
                          
                      }];
+}
+
+- (IBAction)toDetailFiters:(id)sender {
+    CheckDetailFilterViewController *detailVC = (CheckDetailFilterViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"CheckDetailFilterViewController"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

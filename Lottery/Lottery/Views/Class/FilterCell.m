@@ -33,14 +33,19 @@
 }
 
 - (void)updateWithModel:(FilterCellModel *)model
-      textFieldDelegate:(id<UITextFieldDelegate>)delegate {
+      textFieldDelegate:(id<UITextFieldDelegate>)delegate
+       showCommitButton:(BOOL)showButton {
     self.model = model;
 
     self.maxTextField.text = [NSString stringWithFormat:@"%ld", model.max];
     self.MinTextField.text = [NSString stringWithFormat:@"%ld", model.min];
     self.checkMark.hidden = !model.isChecked;
     
-    [self.commitButton setTitle:[self buttonTitle] forState:UIControlStateNormal];
+    self.commitButton.hidden = !showButton;
+    if (showButton) {
+        [self.commitButton setTitle:[self buttonTitle] forState:UIControlStateNormal];
+    }
+    
     
     self.MinTextField.tag = TextFieldTagMinPrefix + self.model.type;
     self.maxTextField.tag = TextFieldTagMaxPrefix + self.model.type;
@@ -105,7 +110,10 @@
         }
             break;
         default:
-            return @"";
+        {
+            min = 1;
+            max = 43;
+        };
     }
     rangeString = [NSString stringWithFormat:@"%ld ~ %ld", min, max];
     return rangeString;

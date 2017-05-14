@@ -10,6 +10,9 @@
 #import "LotteryModel.h"
 
 static NSString* const HostUrl = @"http://localhost/SpringRestHibernateExample";
+
+// 手机创建热点的时候
+//static NSString* const HostUrl = @"http://172.20.10.2/SpringRestHibernateExample";
 static NSString* const GetLottery = @"getLotterys";
 
 @interface ApiManager ()

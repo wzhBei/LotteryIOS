@@ -13,7 +13,18 @@
     
 SINGLETON_DEFINE(SelectedFilterManager);
     
-    /// [FilterCellModel]
-    @property (strong, nonatomic) NSArray *allSelections;
-    
+/// [FilterCellModel]
+@property (strong, nonatomic) NSArray *allBaseSelections;
+
+@property (strong, nonatomic) NSArray *allDetailSelections;
+
+@property (strong, nonatomic) NSArray *allLucknumbers;
+@property (assign, nonatomic) BOOL luckyNumberSelected;
+
+@property (strong, nonatomic, readonly) NSDictionary *allSelectedConditions;
+@property (strong, nonatomic, readonly) NSDictionary *allSelectedBaseConditions;
+
+- (void)resetDetailSelections;
+- (void)resetAllSelections;
+
 @end

@@ -10,6 +10,7 @@
 #import "FilterCellModel.h"
 static NSInteger const TextFieldTagMinPrefix = 1000;
 static NSInteger const TextFieldTagMaxPrefix = 1100;
+
 static NSString* const FilterCellIdentifier = @"FilterCell";
 
 @interface FilterCell : UITableViewCell
@@ -17,6 +18,7 @@ static NSString* const FilterCellIdentifier = @"FilterCell";
 @property (nonatomic, copy) void(^showResultblock)();
     
 - (void)updateWithModel:(FilterCellModel *)model
-      textFieldDelegate:(id<UITextFieldDelegate>)delegate;
-    
+      textFieldDelegate:(id<UITextFieldDelegate>)delegate
+       showCommitButton:(BOOL)showButton;
+
 @end

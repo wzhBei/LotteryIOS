@@ -35,7 +35,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     self.tableView = tableView;
-    
+    [tableView registerNib:[UINib nibWithNibName:@"FilterCell" bundle:nil] forCellReuseIdentifier:FilterCellIdentifier];
     return self;
 }
 
@@ -61,7 +61,9 @@
             return;
         }
     };
-    [cell updateWithModel:model textFieldDelegate:self];
+    [cell updateWithModel:model
+        textFieldDelegate:self
+         showCommitButton:YES];
     return cell;
 }
 
@@ -82,7 +84,7 @@
 }
 
 - (NSArray *)datasource {
-    return [SelectedFilterManager sharedInstance].allSelections;
+    return [SelectedFilterManager sharedInstance].allBaseSelections;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,7 +104,9 @@
     }
     model.isChecked = !model.isChecked;
     FilterCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell updateWithModel:model textFieldDelegate:self];
+    [cell updateWithModel:model
+        textFieldDelegate:self
+         showCommitButton:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self dismissKeyboard];
 }
@@ -144,15 +148,7 @@
 }
 
 - (NSDictionary *)selectedConditions {
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    for (FilterCellModel *model in self.datasource) {
-        if (!model.isChecked) {
-            continue;
-        }
-        
-        [dic addEntriesFromDictionary:[model toConditionDic]];
-    }
-    return dic;
+    return [SelectedFilterManager sharedInstance].allSelectedBaseConditions;
 }
 
 

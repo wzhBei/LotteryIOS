@@ -16,6 +16,8 @@
 @property (nonatomic, assign) BOOL isChecked;
 @property (nonatomic, assign) FilterType type;
 
+@property (nonatomic, assign) NSInteger fixedValue;
+
 - (NSDictionary *)toConditionDic;
 
 - (BOOL)isValid;
