@@ -53,7 +53,7 @@ SINGLETON_IMPL(SelectedFilterManager);
             FilterCellModel *model = [[FilterCellModel alloc] init];
             model.type = (FilterType)type.integerValue;
             // TODO:
-            model.fixedValue = type.integerValue;
+//            model.fixedValue = 0;
             [ary addObject:model];
         }
         _allLucknumbers = [NSArray arrayWithArray:ary];
@@ -73,8 +73,27 @@ SINGLETON_IMPL(SelectedFilterManager);
         
         [dic addEntriesFromDictionary:[model toConditionDic]];
     }
+    if (self.luckyNumberSelected) {
+        [dic addEntriesFromDictionary:[self allLuckNumberConditions]];
+    }
+    
     return dic;
 }   
+
+- (NSDictionary *)allLuckNumberConditions {
+    NSMutableArray *temp = [NSMutableArray array];
+    for (FilterCellModel *model in self.allLucknumbers) {
+        if (model.fixedValue != 0) {
+            [temp addObject:[NSString stringWithFormat:@"%ld", model.fixedValue]];
+        }
+    }
+    if (temp.count > 0 ) {
+        return @{
+                    @"luckyNumbers" : temp
+                 };
+    }
+    return @{};
+}
 
 - (NSDictionary *)allSelectedBaseConditions {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
