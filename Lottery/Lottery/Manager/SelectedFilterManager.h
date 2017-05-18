@@ -26,5 +26,6 @@ SINGLETON_DEFINE(SelectedFilterManager);
 
 - (void)resetDetailSelections;
 - (void)resetAllSelections;
+- (NSArray *)toSelectedModels;
 
 @end

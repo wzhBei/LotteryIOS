@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SelectedFilterCellModel.h"
 
+static NSString* const ConditionTitleTableViewCellIdentifier = @"ConditionTitleTableViewCell";
+
 // height30
 @interface ConditionTitleTableViewCell : UITableViewCell
 

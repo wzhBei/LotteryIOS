@@ -12,9 +12,11 @@
 #import "ShowLuckyNumberCell.h"
 #import "ConditionTitleTableViewCell.h"
 #import "SelectedFilterCellModel.h"
+#import "ConditionTitleTableViewCell.h"
 
 @interface SelectedConditionDatasource()
 
+// SelectedFilterCellModel
 @property (strong, nonatomic) NSArray *datasource;
 
 @end
@@ -35,16 +37,49 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ResultCell *cell = [tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
-    
-    LotteryModel *model = self.datasource[indexPath.row];
-    [cell updateCellWithModel:model];
-    return cell;
+    SelectedFilterCellModel *model = self.datasource[indexPath.row];
+    switch (model.cellType) {
+        case SelectedFilterCellTypeTitle:
+        {
+            ConditionTitleTableViewCell *cell = (ConditionTitleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:model.reuseIdentifer];
+            [cell updateWithModel:model];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+        case SelectedFilterCellTypeTitleBase:
+        {
+            ShowBaseFilterCell *cell = (ShowBaseFilterCell *)[tableView dequeueReusableCellWithIdentifier:model.reuseIdentifer];
+            [cell updateWithModel:model];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+        case SelectedFilterCellTypeTitleEach:
+        {
+            ShowEachNumberFilterCell *cell = (ShowEachNumberFilterCell *)[tableView dequeueReusableCellWithIdentifier:model.reuseIdentifer];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell updateWithModel:model];
+            return cell;
+        }
+            break;
+        case SelectedFilterCellTypeTitleLuckNumber:
+        {
+            ShowLuckyNumberCell *cell = (ShowLuckyNumberCell *)[tableView dequeueReusableCellWithIdentifier:model.reuseIdentifer];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell updateWithModel:model];
+            return cell;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 216;
+    SelectedFilterCellModel *model = self.datasource[indexPath.row];
+    return model.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

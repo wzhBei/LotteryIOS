@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger min;
 @property (nonatomic, assign) BOOL isChecked;
 @property (nonatomic, assign) FilterType type;
+@property (nonatomic, assign) BOOL isLuckNumber;
 
 @property (nonatomic, assign) NSInteger fixedValue;
 
@@ -23,5 +24,8 @@
 - (BOOL)isValid;
 
 - (NSString *)conditionString;
+
+// 转换成结果画面需要的字符川
+- (NSString *)toResultString;
 
 @end

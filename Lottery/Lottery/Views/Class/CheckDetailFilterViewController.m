@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = @"詳細条件";
     [self customizeBackbar];
     
     NSMutableArray *ary = [NSMutableArray arrayWithArray:[SelectedFilterManager sharedInstance].allDetailSelections];

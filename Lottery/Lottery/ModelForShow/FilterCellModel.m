@@ -175,4 +175,28 @@
             return [NSString stringWithFormat:@"Number:%u", (self.type - 4)];
     }
 }
+
+- (NSString *)toResultString {
+    NSString *rangeString = [NSString stringWithFormat:@"%ldから%ldまで", self.min, self.max];
+    switch (self.type) {
+        case FilterTypeSum:
+        case FilterTypeCRS:
+        case FilterTypeODD:
+        case FilterTypeINT:
+        case FilterTypeCON:
+             return [NSString stringWithFormat:@"%@:  %@", self.conditionString,rangeString];
+        case FilterNumber1:
+        case FilterNumber2:
+        case FilterNumber3:
+        case FilterNumber4:
+        case FilterNumber5:
+        case FilterNumber6: {
+            if (self.isLuckNumber) {
+                return [NSString stringWithFormat:@"Number:%u : %ld", (self.type - 4), self.fixedValue];
+            }
+            return [NSString stringWithFormat:@"Number%u: %ld ~ %ld", (self.type - 4), self.min, self.max];
+        }
+    }
+}
+
 @end

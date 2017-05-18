@@ -32,7 +32,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultCell *cell = [tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     LotteryModel *model = self.datasource[indexPath.row];
     [cell updateCellWithModel:model];
     return cell;

@@ -8,15 +8,19 @@
 
 #import "ResultViewController.h"
 #import "ResultTableDatasource.h"
+#import "SelectedConditionDatasource.h"
+#import "SelectedFilterManager.h"
 
 static const NSInteger ConditionTableMinHeight = 50;
 static const NSInteger ConditionTableMaxHeight = 200;
-static const NSTimeInterval AnimationInterval = 0.75;
-static const float MaskAlpha = 0.35;
+static const NSTimeInterval AnimationInterval = 0.35;
+static const float MaskAlpha = 0.2;
 
 @interface ResultViewController ()
 
 @property (strong, nonatomic) ResultTableDatasource *datasource;
+@property (strong, nonatomic) SelectedConditionDatasource *conditionDatasource;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UITableView *conditionTableview;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *conditionTableHeight;
@@ -37,6 +41,11 @@ static const float MaskAlpha = 0.35;
     [self.datasource updateDatasource:self.models];
     [self.tableview reloadData];
 
+    self.conditionDatasource = [[SelectedConditionDatasource alloc] init];
+    self.conditionTableview.dataSource = self.conditionDatasource;
+    self.conditionTableview.delegate = self.conditionDatasource;
+    [self.conditionDatasource updateDatasource:[[SelectedFilterManager sharedInstance] toSelectedModels]];
+    
     UITapGestureRecognizer *conditionTapGs = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideOrShowConditionTable:)];
     [self.conditionMaskView addGestureRecognizer:conditionTapGs];
     
@@ -47,21 +56,23 @@ static const float MaskAlpha = 0.35;
 
 - (void)hideOrShowConditionTable:(UITapGestureRecognizer *)gs {
     NSInteger conditionTableHeight = [self showingConditionTable] ? ConditionTableMinHeight : ConditionTableMaxHeight;
-    NSInteger conditionMaskAlpha = [self showingConditionTable] ? 0 : MaskAlpha;
-    
+    double conditionMaskAlpha = [self showingConditionTable] ? 0 : MaskAlpha;
+    self.conditionMaskView.hidden = ![self showingConditionTable];
+
     [UIView animateWithDuration:AnimationInterval animations:^{
         self.conditionTableHeight.constant = conditionTableHeight;
-        self.conditionMaskView.alpha = conditionMaskAlpha;
+        self.resultTableMask.alpha = conditionMaskAlpha;
         [self.view layoutIfNeeded];
     }];
     
-    self.conditionMaskView.hidden = [self showingConditionTable];
     
 }
 
 - (void)hideResutlMask {
     [UIView animateWithDuration:AnimationInterval animations:^{
-        self.conditionMaskView.alpha = 0;
+        self.conditionMaskView.hidden = NO;
+        self.resultTableMask.alpha = 0;
+        self.conditionTableHeight.constant = ConditionTableMinHeight;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         

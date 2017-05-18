@@ -30,8 +30,8 @@
              @"sum" : @"sumValue",
              @"crs" : @"crsValue",
              @"odd" : @"oddValue",
-             @"con" : @"intValue",
-             @"interval" : @"conValue"
+             @"con" : @"conValue",
+             @"interval" : @"intValue"
              };
 }
 

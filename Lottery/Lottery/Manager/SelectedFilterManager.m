@@ -8,6 +8,11 @@
 
 #import "SelectedFilterManager.h"
 #import "FilterCellModel.h"
+#import "SelectedFilterCellModel.h"
+#import "ShowBaseFilterCell.h"
+#import "ShowEachNumberFilterCell.h"
+#import "ShowLuckyNumberCell.h"
+#import "ConditionTitleTableViewCell.h"
 
 @interface SelectedFilterManager()
 
@@ -52,8 +57,8 @@ SINGLETON_IMPL(SelectedFilterManager);
         for (NSNumber *type in @[@(FilterNumber1), @(FilterNumber2), @(FilterNumber3), @(FilterNumber4), @(FilterNumber5), @(FilterNumber6)]) {
             FilterCellModel *model = [[FilterCellModel alloc] init];
             model.type = (FilterType)type.integerValue;
+            model.isLuckNumber = YES;
             // TODO:
-//            model.fixedValue = 0;
             [ary addObject:model];
         }
         _allLucknumbers = [NSArray arrayWithArray:ary];
@@ -105,6 +110,72 @@ SINGLETON_IMPL(SelectedFilterManager);
         [dic addEntriesFromDictionary:[model toConditionDic]];
     }
     return dic;
+}
+
+- (NSArray *)toSelectedModels {
+    //SelectedFilterCellModel
+    SelectedFilterCellModel *titleModel1 = [[SelectedFilterCellModel alloc] init];
+    titleModel1.cellType = SelectedFilterCellTypeTitle;
+    titleModel1.title = @"基礎条件";
+    titleModel1.height = 20.f;
+    titleModel1.reuseIdentifer  = ConditionTitleTableViewCellIdentifier;
+    SelectedFilterCellModel *titleModel2 = [[SelectedFilterCellModel alloc] init];
+    titleModel2.cellType = SelectedFilterCellTypeTitle;
+    titleModel2.title = @"詳細条件";
+    titleModel2.reuseIdentifer = ConditionTitleTableViewCellIdentifier;
+    titleModel2.height = 20.f;
+    
+    NSMutableArray *result = [NSMutableArray array];
+    [result addObject:titleModel1];
+    if (self.allBaseSelections.count > 0) {
+        for (FilterCellModel *model in self.allBaseSelections) {
+            if (!model.isChecked) {
+                continue;
+            }
+            SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
+            newModel.cellType = SelectedFilterCellTypeTitleBase;
+            newModel.title = [model toResultString];
+            newModel.reuseIdentifer = ShowBaseFilterCellIdentifier;
+            newModel.height = 40.f;
+            [result addObject:newModel];
+        }
+    }
+
+    [result addObject:titleModel2];
+    if (self.allDetailSelections.count > 0) {
+        NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
+        // 70
+        for (FilterCellModel *model in self.allDetailSelections) {
+            if (!model.isChecked) {
+                continue;
+            }
+            NSString *key = [NSString stringWithFormat:@"N%u", model.type - 4];
+            [detailDic setObject:model.toResultString forKey:key];
+        }
+        SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
+        newModel.cellType = SelectedFilterCellTypeTitleEach;
+        newModel.height = 70.f;
+        newModel.selectedEacheNumbers = detailDic;
+        newModel.reuseIdentifer = ShowEachNumberFilterCellIdentifier;
+        [result addObject:newModel];
+    }
+    
+    if (self.luckyNumberSelected) {
+        NSMutableDictionary *luckDic = [NSMutableDictionary dictionary];
+        // 70
+        for (FilterCellModel *model in self.allLucknumbers) {
+            NSString *key = [NSString stringWithFormat:@"N%u", model.type - 4];
+            [luckDic setObject:model.toResultString forKey:key];
+        }
+        SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
+        newModel.cellType = SelectedFilterCellTypeTitleLuckNumber;
+        newModel.height = 100.f;
+        newModel.selectedLuckNumbers = luckDic;
+        newModel.reuseIdentifer = ShowLuckyNumberCellIdentifier;
+        [result addObject:newModel];
+    }
+    
+    return result;
 }
 
 - (void)resetDetailSelections {

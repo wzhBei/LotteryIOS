@@ -16,8 +16,9 @@
 
 @property (assign, nonatomic) SelectedFilterCellType cellType;
 @property (assign, nonatomic) CGFloat height;
-
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *reuseIdentifer;
+//@property (strong, nonatomic) NSString *baseRange;
 
 // -------------
 // {"N1" : "5~10"}
