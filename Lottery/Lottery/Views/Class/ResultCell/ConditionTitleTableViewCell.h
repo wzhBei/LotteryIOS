@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedFilterCellModel.h"
 
+// height30
 @interface ConditionTitleTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+- (void)updateWithModel:(SelectedFilterCellModel *)model;
 
 @end
