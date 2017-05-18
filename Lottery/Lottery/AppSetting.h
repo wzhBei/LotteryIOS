@@ -20,6 +20,14 @@ typedef enum {
     FilterNumber6 = 10
 } FilterType;
 
+typedef enum {
+    SelectedFilterCellTypeTitle = 0,
+    SelectedFilterCellTypeTitleBase = 1,
+    SelectedFilterCellTypeTitleEach = 2,
+    SelectedFilterCellTypeTitleLuckNumber = 3
+    
+} SelectedFilterCellType;
+
 #define WEAK_SELF __weak typeof(self) SELF = self
 
 #define SumMax 238

@@ -10,6 +10,9 @@
 		55203DA646513AA757A470BA /* libPods-Lottery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A00060619B8C6B92A67FDF /* libPods-Lottery.a */; };
 		BE0E31121EBCA4F900C715B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE0E31111EBCA4F900C715B3 /* Main.storyboard */; };
 		BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */; };
+		BEF79D401ECD4EC400FF0F6F /* SelectedFilterCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D3F1ECD4EC400FF0F6F /* SelectedFilterCellModel.m */; };
+		BEF79D431ECD726100FF0F6F /* SelectedConditionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D421ECD726100FF0F6F /* SelectedConditionDatasource.m */; };
+		BEF79D461ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D451ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m */; };
 		D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3801EBB6A83006A6BAF /* ResultCell.m */; };
 		D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3831EBB6B40006A6BAF /* LotteryModel.m */; };
 		D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */; };
@@ -46,6 +49,12 @@
 		BE0E31111EBCA4F900C715B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterIntegerModel.h; sourceTree = "<group>"; };
 		BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterIntegerModel.m; sourceTree = "<group>"; };
+		BEF79D3E1ECD4EC400FF0F6F /* SelectedFilterCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedFilterCellModel.h; sourceTree = "<group>"; };
+		BEF79D3F1ECD4EC400FF0F6F /* SelectedFilterCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedFilterCellModel.m; sourceTree = "<group>"; };
+		BEF79D411ECD726100FF0F6F /* SelectedConditionDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedConditionDatasource.h; sourceTree = "<group>"; };
+		BEF79D421ECD726100FF0F6F /* SelectedConditionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedConditionDatasource.m; sourceTree = "<group>"; };
+		BEF79D441ECD75FF00FF0F6F /* ConditionTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionTitleTableViewCell.h; sourceTree = "<group>"; };
+		BEF79D451ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionTitleTableViewCell.m; sourceTree = "<group>"; };
 		D105D37F1EBB6A83006A6BAF /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
 		D105D3801EBB6A83006A6BAF /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 		D105D3821EBB6B40006A6BAF /* LotteryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryModel.h; sourceTree = "<group>"; };
@@ -137,6 +146,8 @@
 				D188BF151EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m */,
 				D188BF171EC7EC0E0065B8C0 /* ShowLuckyNumberCell.h */,
 				D188BF181EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m */,
+				BEF79D441ECD75FF00FF0F6F /* ConditionTitleTableViewCell.h */,
+				BEF79D451ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m */,
 			);
 			path = ResultCell;
 			sourceTree = "<group>";
@@ -262,6 +273,8 @@
 				BE0E31141EBCA56E00C715B3 /* FilterIntegerModel.m */,
 				D105D3821EBB6B40006A6BAF /* LotteryModel.h */,
 				D105D3831EBB6B40006A6BAF /* LotteryModel.m */,
+				BEF79D3E1ECD4EC400FF0F6F /* SelectedFilterCellModel.h */,
+				BEF79D3F1ECD4EC400FF0F6F /* SelectedFilterCellModel.m */,
 			);
 			name = Model;
 			path = ModelForShow;
@@ -274,6 +287,8 @@
 				D1A5C74E1EACC50F00A220F9 /* FilterTableDatasource.m */,
 				D12AF2631EBE0B820058E8A9 /* ResultTableDatasource.h */,
 				D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */,
+				BEF79D411ECD726100FF0F6F /* SelectedConditionDatasource.h */,
+				BEF79D421ECD726100FF0F6F /* SelectedConditionDatasource.m */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -414,6 +429,7 @@
 			files = (
 				BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */,
 				D188BF261EC85EB20065B8C0 /* BaseViewController.m in Sources */,
+				BEF79D401ECD4EC400FF0F6F /* SelectedFilterCellModel.m in Sources */,
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
 				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
@@ -422,6 +438,7 @@
 				D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */,
 				D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */,
 				D188BF131EC7EA9E0065B8C0 /* ShowBaseFilterCell.m in Sources */,
+				BEF79D431ECD726100FF0F6F /* SelectedConditionDatasource.m in Sources */,
 				D1A5C7391EACAF5700A220F9 /* CheckFilterViewController.m in Sources */,
 				D1A5C74B1EACC28D00A220F9 /* SelectedFilterManager.m in Sources */,
 				D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */,
@@ -431,6 +448,7 @@
 				D188BF1F1EC802F10065B8C0 /* LotoSelectViewController.m in Sources */,
 				D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */,
 				D1A5C7201EACA9B300A220F9 /* AppDelegate.m in Sources */,
+				BEF79D461ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m in Sources */,
 				D1A5C7411EACB10800A220F9 /* AppSetting.m in Sources */,
 				D188BF161EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m in Sources */,
 				D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */,

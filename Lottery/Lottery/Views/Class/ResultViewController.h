@@ -11,4 +11,5 @@
 @interface ResultViewController : UIViewController
 
 - (void)updateWithDatasource:(NSArray *)datasource;
+
 @end
