@@ -11,7 +11,7 @@
 @implementation ConditionTitleTableViewCell
 
 - (void)updateWithModel:(SelectedFilterCellModel *)model {
-    
+    self.titleLabel.text = model.title;
 }
 
 - (void)awakeFromNib {

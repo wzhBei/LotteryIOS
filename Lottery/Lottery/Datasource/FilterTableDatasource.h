@@ -12,6 +12,8 @@
 @interface FilterTableDatasource : NSObject<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong, readonly) NSDictionary *selectedConditions;
+@property (nonatomic, assign) BOOL isShowingKeyboard;
+
 - (instancetype)initWithTableView:(UITableView *)tableView;
     @property (weak, nonatomic) UIViewController *delegateController;
 

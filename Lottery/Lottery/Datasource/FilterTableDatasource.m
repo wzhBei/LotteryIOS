@@ -97,7 +97,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (self.isShowingKeyboard) {
+        [self dismissKeyboard];
+        return;
+    }
     FilterCellModel *model = self.datasource[indexPath.row];
     if (![model isValid]) {
         [[AlertHelper sharedInstance] showFilterInvalidWithModel:model];
@@ -108,7 +113,6 @@
     [cell updateWithModel:model
         textFieldDelegate:self
          showCommitButton:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self dismissKeyboard];
 }
 

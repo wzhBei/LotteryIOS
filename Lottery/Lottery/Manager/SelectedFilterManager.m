@@ -54,10 +54,11 @@ SINGLETON_IMPL(SelectedFilterManager);
 - (NSArray *)allLucknumbers {
     if (!_allLucknumbers) {
         NSMutableArray *ary = [NSMutableArray array];
-        for (NSNumber *type in @[@(FilterNumber1), @(FilterNumber2), @(FilterNumber3), @(FilterNumber4), @(FilterNumber5), @(FilterNumber6)]) {
+        for (NSNumber *type in @[@(FilterNumber1), @(FilterNumber2), @(FilterNumber3), @(FilterNumber4), @(FilterNumber5), @(FilterNumber6), @(FilterLuckyCount)]) {
             FilterCellModel *model = [[FilterCellModel alloc] init];
             model.type = (FilterType)type.integerValue;
             model.isLuckNumber = YES;
+            model.fixedValue = type.integerValue - 1;
             // TODO:
             [ary addObject:model];
         }
@@ -86,16 +87,21 @@ SINGLETON_IMPL(SelectedFilterManager);
 }   
 
 - (NSDictionary *)allLuckNumberConditions {
+    NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
     NSMutableArray *temp = [NSMutableArray array];
     for (FilterCellModel *model in self.allLucknumbers) {
-        if (model.fixedValue != 0) {
-            [temp addObject:[NSString stringWithFormat:@"%ld", model.fixedValue]];
+        if (model.type == FilterLuckyCount) {
+            NSString *minString = [NSString stringWithFormat:@"%ld", model.min];
+            NSString *maxString = [NSString stringWithFormat:@"%ld", model.max];
+            [resultDic setValue:minString forKey:@"luckMinCount"];
+            [resultDic setValue:maxString forKey:@"luckMaxCount"];
+            continue;
         }
+        [temp addObject:[NSString stringWithFormat:@"%ld", model.fixedValue]];
     }
     if (temp.count > 0 ) {
-        return @{
-                    @"luckyNumbers" : temp
-                 };
+        [resultDic setValue:temp forKey:@"luckyNumbers"];
+        return resultDic;
     }
     return @{};
 }
@@ -116,14 +122,12 @@ SINGLETON_IMPL(SelectedFilterManager);
     //SelectedFilterCellModel
     SelectedFilterCellModel *titleModel1 = [[SelectedFilterCellModel alloc] init];
     titleModel1.cellType = SelectedFilterCellTypeTitle;
-    titleModel1.title = @"基礎条件";
-    titleModel1.height = 20.f;
+    titleModel1.title = @"確率条件";
     titleModel1.reuseIdentifer  = ConditionTitleTableViewCellIdentifier;
     SelectedFilterCellModel *titleModel2 = [[SelectedFilterCellModel alloc] init];
     titleModel2.cellType = SelectedFilterCellTypeTitle;
-    titleModel2.title = @"詳細条件";
+    titleModel2.title = @"ラキー条件";
     titleModel2.reuseIdentifer = ConditionTitleTableViewCellIdentifier;
-    titleModel2.height = 20.f;
     
     NSMutableArray *result = [NSMutableArray array];
     [result addObject:titleModel1];
@@ -136,13 +140,13 @@ SINGLETON_IMPL(SelectedFilterManager);
             newModel.cellType = SelectedFilterCellTypeTitleBase;
             newModel.title = [model toResultString];
             newModel.reuseIdentifer = ShowBaseFilterCellIdentifier;
-            newModel.height = 40.f;
             [result addObject:newModel];
         }
     }
 
     [result addObject:titleModel2];
     if (self.allDetailSelections.count > 0) {
+        NSInteger validCount = 0;
         NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
         // 70
         for (FilterCellModel *model in self.allDetailSelections) {
@@ -151,25 +155,30 @@ SINGLETON_IMPL(SelectedFilterManager);
             }
             NSString *key = [NSString stringWithFormat:@"N%u", model.type - 4];
             [detailDic setObject:model.toResultString forKey:key];
+            validCount ++;
         }
-        SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
-        newModel.cellType = SelectedFilterCellTypeTitleEach;
-        newModel.height = 70.f;
-        newModel.selectedEacheNumbers = detailDic;
-        newModel.reuseIdentifer = ShowEachNumberFilterCellIdentifier;
-        [result addObject:newModel];
+        if (validCount > 0) {
+            SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
+            newModel.cellType = SelectedFilterCellTypeTitleEach;
+            newModel.selectedEacheNumbers = detailDic;
+            newModel.reuseIdentifer = ShowEachNumberFilterCellIdentifier;
+            [result addObject:newModel];
+        }
     }
     
     if (self.luckyNumberSelected) {
+        SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
         NSMutableDictionary *luckDic = [NSMutableDictionary dictionary];
         // 70
         for (FilterCellModel *model in self.allLucknumbers) {
+            if (model.type == FilterLuckyCount) {
+                newModel.title = model.toResultString;
+                continue;
+            }
             NSString *key = [NSString stringWithFormat:@"N%u", model.type - 4];
             [luckDic setObject:model.toResultString forKey:key];
         }
-        SelectedFilterCellModel *newModel = [[SelectedFilterCellModel alloc] init];
         newModel.cellType = SelectedFilterCellTypeTitleLuckNumber;
-        newModel.height = 100.f;
         newModel.selectedLuckNumbers = luckDic;
         newModel.reuseIdentifer = ShowLuckyNumberCellIdentifier;
         [result addObject:newModel];
@@ -178,9 +187,24 @@ SINGLETON_IMPL(SelectedFilterManager);
     return result;
 }
 
+- (BOOL)luckyNumbersValid {
+    NSMutableArray *ary = [NSMutableArray array];
+    for (FilterCellModel *model in self.allLucknumbers) {
+        if ([ary containsObject:@(model.fixedValue)]) {
+            return NO;
+        }
+        [ary addObject:@(model.fixedValue)];
+        if (!model.isValid) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)resetDetailSelections {
     _allDetailSelections = nil;
     _allLucknumbers = nil;
+    _luckyNumberSelected = NO;
 }
 - (void)resetAllSelections {
     _allBaseSelections = nil;

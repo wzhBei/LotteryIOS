@@ -11,7 +11,7 @@
 @implementation ShowBaseFilterCell
 
 - (void)updateWithModel:(SelectedFilterCellModel *)model {
-
+    self.filterNameLabel.text = model.title;
 }
 
 - (void)awakeFromNib {

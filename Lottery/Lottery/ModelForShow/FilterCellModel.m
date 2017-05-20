@@ -53,7 +53,7 @@
               [NSString stringWithFormat:@"MaxN%u", self.type - 4] : [@(self.max) stringValue]
               };
         default:
-            break;
+            return @{};
     }
 }
 
@@ -89,23 +89,35 @@
                 self.max <= IntervalMax;
         case FilterTypeCON:
             return
-                self.min >= IntervalMin &&
-                self.min <= IntervalMax &&
-                self.max >= IntervalMin &&
-                self.max <= IntervalMax;
+                self.min >= ConMin &&
+                self.min <= ConMax &&
+                self.max >= ConMin &&
+                self.max <= ConMax;
         case FilterNumber1:
         case FilterNumber2:
         case FilterNumber3:
         case FilterNumber4:
         case FilterNumber5:
         case FilterNumber6:
-                return
+        {
+            if (self.isLuckNumber) {
+                return self.fixedValue >= NumberMin && self.fixedValue <= NumberMax;
+            }
+            return
+            self.min >= NumberMin &&
+            self.min <= NumberMax &&
+            self.max >= NumberMin &&
+            self.max <= NumberMax;
+        }
+            
+        case FilterLuckyCount:
+            return
             self.min >= 1 &&
-            self.min <= 43 &&
+            self.min <= 6 &&
             self.max >= 1 &&
-            self.max <= 43;
+            self.min <= 6;
     }
-
+    
 }
 
 - (void)setType:(FilterType)type {
@@ -140,15 +152,23 @@
             self.min = ConMin;
             self.max = ConMax;
         }
-            case FilterNumber1:
-            case FilterNumber2:
-            case FilterNumber3:
-            case FilterNumber4:
-            case FilterNumber5:
-            case FilterNumber6:
+            break;
+            
+        case FilterNumber1:
+        case FilterNumber2:
+        case FilterNumber3:
+        case FilterNumber4:
+        case FilterNumber5:
+        case FilterNumber6:
+        {
+            self.min = NumberMin;
+            self.max = NumberMax;
+        }
+            break;
+        case FilterLuckyCount:
         {
             self.min = 1;
-            self.max = 43;
+            self.max = 6;
         }
             break;
     }
@@ -173,9 +193,12 @@
         case FilterNumber5:
         case FilterNumber6:
             return [NSString stringWithFormat:@"Number:%u", (self.type - 4)];
+        default:
+            return @"";
     }
 }
 
+/// 结果画面条件list显示的字符串
 - (NSString *)toResultString {
     NSString *rangeString = [NSString stringWithFormat:@"%ldから%ldまで", self.min, self.max];
     switch (self.type) {
@@ -192,10 +215,12 @@
         case FilterNumber5:
         case FilterNumber6: {
             if (self.isLuckNumber) {
-                return [NSString stringWithFormat:@"Number:%u : %ld", (self.type - 4), self.fixedValue];
+                return [NSString stringWithFormat:@"%ld",self.fixedValue];
             }
             return [NSString stringWithFormat:@"Number%u: %ld ~ %ld", (self.type - 4), self.min, self.max];
         }
+        case FilterLuckyCount:
+            return [NSString stringWithFormat:@"下記%ld ~ %ld のラキー数字が含まれています。", self.min, self.max];
     }
 }
 

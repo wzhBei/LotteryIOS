@@ -14,10 +14,16 @@
 SINGLETON_IMPL(AlertHelper);
 
 - (void)showFilterInvalidWithModel:(FilterCellModel *)model {
-    NSString *alertString = [NSString stringWithFormat:@"%@で洗い出す場合に、ルールにご参考してください.", [model conditionString]];
+    NSString *alertString = [NSString stringWithFormat:@"%@で絞り込む場合に、入力数値は正確性をご確認してくだい。", [model conditionString]];
     [[AlertHelper sharedInstance] showAlertWithTitle:@"確認" message:alertString ok:^{
     } cancel:nil];
 }
+
+- (void)showLuckFilterInvalidAlert {
+    [[AlertHelper sharedInstance] showAlertWithTitle:@"確認" message:@"ラキー数字また限定範囲入力不正ですが、ご確認してください。" ok:^{
+    } cancel:nil];
+}
+
 
 - (void)showAlertWithTitle:(NSString *)title
                    message:(NSString *)message

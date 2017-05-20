@@ -25,4 +25,6 @@ SINGLETON_DEFINE(AlertHelper);
 
 - (void)showFilterInvalidWithModel:(FilterCellModel *)model;
 
+- (void)showLuckFilterInvalidAlert;
+
 @end

@@ -54,11 +54,11 @@
 
 
 - (void)keyboardWillHideIn:(NSTimeInterval)timeInterval{
-
+    self.isShowingKeyboard = NO;
 }
 
 - (void)keyboardWillShowIn:(NSTimeInterval)timeInterval rect:(CGRect)rect {
-    
+    self.isShowingKeyboard = YES;
 }
 
 - (void)didReceiveMemoryWarning {

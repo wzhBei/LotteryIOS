@@ -19,7 +19,7 @@
 @interface CheckFilterViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) FilterTableDatasource *datasource;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableviewBottom;
 
 @end
 
@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customizeBackbar];
-    self.title = @"Loto6";
+    self.title = @"loto6 確率条件";
     self.navigationController.navigationBarHidden = NO;
      self.automaticallyAdjustsScrollViewInsets = NO;
     self.datasource = [[FilterTableDatasource alloc] initWithTableView:self.tableview];
@@ -67,15 +67,19 @@
 
 // Override BaseviewController
 - (void)keyboardWillHideIn:(NSTimeInterval)timeInterval {
+    [super keyboardWillHideIn:timeInterval];
+    self.datasource.isShowingKeyboard = self.isShowingKeyboard;
     [UIView animateWithDuration:timeInterval animations:^{
-        self.buttonBottom.constant = 0;
+        self.tableviewBottom.constant = 50;
         [self.view layoutIfNeeded];
     }];
 }
 
 - (void)keyboardWillShowIn:(NSTimeInterval)timeInterval rect:(CGRect)rect{
+    [super keyboardWillShowIn:timeInterval rect:rect];
+    self.datasource.isShowingKeyboard = self.isShowingKeyboard;
     [UIView animateWithDuration:timeInterval animations:^{
-        self.buttonBottom.constant = CGRectGetHeight(rect);
+        self.tableviewBottom.constant = CGRectGetHeight(rect) + 50;
         [self.view layoutIfNeeded];
     }];
 }

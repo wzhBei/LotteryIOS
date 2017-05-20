@@ -20,6 +20,7 @@ SINGLETON_DEFINE(SelectedFilterManager);
 
 @property (strong, nonatomic) NSArray *allLucknumbers;
 @property (assign, nonatomic) BOOL luckyNumberSelected;
+@property (assign, nonatomic) BOOL luckyNumbersValid;
 
 @property (strong, nonatomic, readonly) NSDictionary *allSelectedConditions;
 @property (strong, nonatomic, readonly) NSDictionary *allSelectedBaseConditions;

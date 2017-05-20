@@ -23,6 +23,7 @@
     [super awakeFromNib];
     self.maxTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.MinTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
 }
 

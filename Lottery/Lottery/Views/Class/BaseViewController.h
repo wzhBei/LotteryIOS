@@ -14,4 +14,5 @@
 - (void)keyboardWillHideIn:(NSTimeInterval)timeInterval;
 - (void)keyboardWillShowIn:(NSTimeInterval)timeInterval rect:(CGRect)rect;
 
+@property (assign, nonatomic) BOOL isShowingKeyboard;
 @end

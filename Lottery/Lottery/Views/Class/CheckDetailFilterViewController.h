@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CheckDetailFilterViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface CheckDetailFilterViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end

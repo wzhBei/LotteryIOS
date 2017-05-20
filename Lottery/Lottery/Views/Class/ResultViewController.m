@@ -10,9 +10,10 @@
 #import "ResultTableDatasource.h"
 #import "SelectedConditionDatasource.h"
 #import "SelectedFilterManager.h"
+#import "SelectedFilterCellModel.h"
 
 static const NSInteger ConditionTableMinHeight = 50;
-static const NSInteger ConditionTableMaxHeight = 200;
+static const NSInteger ConditionTableMaxHeight = 300;
 static const NSTimeInterval AnimationInterval = 0.35;
 static const float MaskAlpha = 0.2;
 
@@ -28,6 +29,8 @@ static const float MaskAlpha = 0.2;
 @property (weak, nonatomic) IBOutlet UIView *resultTableMask;
 
 @property (strong, nonatomic) NSArray *models;
+@property (assign, nonatomic) NSInteger conditionHeight;
+
 @end
 
 @implementation ResultViewController
@@ -51,11 +54,22 @@ static const float MaskAlpha = 0.2;
     
     UITapGestureRecognizer *resultMaskTapGs = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideResutlMask)];
     [self.resultTableMask addGestureRecognizer:resultMaskTapGs];
+    
+    [self computeConditionHeight];
     // Do any additional setup after loading the view.
 }
 
+- (void)computeConditionHeight {
+    CGFloat height = 0;
+    for (SelectedFilterCellModel *model in [[SelectedFilterManager sharedInstance] toSelectedModels]) {
+        height += model.height;
+    }
+    self.conditionHeight = height;
+}
+
 - (void)hideOrShowConditionTable:(UITapGestureRecognizer *)gs {
-    NSInteger conditionTableHeight = [self showingConditionTable] ? ConditionTableMinHeight : ConditionTableMaxHeight;
+    CGFloat tableHeight = MIN(self.conditionHeight, ConditionTableMaxHeight);
+    NSInteger conditionTableHeight = [self showingConditionTable] ? ConditionTableMinHeight : tableHeight;
     double conditionMaskAlpha = [self showingConditionTable] ? 0 : MaskAlpha;
     self.conditionMaskView.hidden = ![self showingConditionTable];
 

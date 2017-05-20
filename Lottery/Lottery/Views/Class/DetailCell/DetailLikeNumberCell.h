@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static NSInteger const LuckNumberTagPrefix = 2000;
+static NSInteger const LuckNumberMaxPrefix = 200;
 static NSString* const DetailLikeNumberCellIdentifier = @"DetailLikeNumberCell";
 
 @interface DetailLikeNumberCell : UITableViewCell

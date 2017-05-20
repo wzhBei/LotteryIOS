@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonnull) NSArray *datasource;
 @property (nonatomic, weak) UITextField *currentTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottom;
 
 @end
 
@@ -31,8 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"詳細条件";
+    self.title = @"loto6 好み条件";
     [self customizeBackbar];
+    
+    self.tableview.estimatedRowHeight = 150.f;
     
     NSMutableArray *ary = [NSMutableArray arrayWithArray:[SelectedFilterManager sharedInstance].allDetailSelections];
     self.datasource = ary;
@@ -78,6 +81,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.isShowingKeyboard) {
+        [self dismissKeyboard];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
     if (indexPath.row < self.datasource.count) {
         FilterCellModel *model = self.datasource[indexPath.row];
         if (![model isValid]) {
@@ -93,17 +101,27 @@
         [self dismissKeyboard];
         return;
     }
-    
+
+    if (![SelectedFilterManager sharedInstance].luckyNumbersValid) {
+        [[AlertHelper sharedInstance] showLuckFilterInvalidAlert];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self dismissKeyboard];
+        return;
+    }
     [SelectedFilterManager sharedInstance].luckyNumberSelected = ![SelectedFilterManager sharedInstance].luckyNumberSelected;
     DetailLikeNumberCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell updateWithModels:[SelectedFilterManager sharedInstance].allLucknumbers
          textFieldDelegate:self
                  isChecked:[SelectedFilterManager sharedInstance].luckyNumberSelected];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self dismissKeyboard];
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row >= self.datasource.count) {
+        return UITableViewAutomaticDimension;
+    }
     return 156;
 }
 
@@ -174,8 +192,19 @@
     BOOL isLuckyNbrField = textField.tag >= LuckNumberTagPrefix;
     if (isLuckyNbrField) {
         NSInteger index = textField.tag - LuckNumberTagPrefix - FilterNumber1;
-        FilterCellModel *model = [SelectedFilterManager sharedInstance].allLucknumbers[index];
-        model.fixedValue = [resultString integerValue];
+        
+            if (index >= LuckNumberMaxPrefix) {
+                index -= LuckNumberMaxPrefix;
+                FilterCellModel *model = [SelectedFilterManager sharedInstance].allLucknumbers[index];
+                model.max = [resultString integerValue];
+            } else {
+                FilterCellModel *model = [SelectedFilterManager sharedInstance].allLucknumbers[index];
+                if (model.type == FilterLuckyCount) {
+                    model.min = [resultString integerValue];
+                } else {
+                    model.fixedValue = [resultString integerValue];
+                }
+            }
         return YES;
     }
     
@@ -197,6 +226,22 @@
     self.currentTextField = textField;
 }
 
+// Override BaseviewController
+- (void)keyboardWillHideIn:(NSTimeInterval)timeInterval {
+    [super keyboardWillHideIn:timeInterval];
+    [UIView animateWithDuration:timeInterval animations:^{
+        self.tableViewBottom.constant = 50;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)keyboardWillShowIn:(NSTimeInterval)timeInterval rect:(CGRect)rect{
+    [super keyboardWillShowIn:timeInterval rect:rect];
+    [UIView animateWithDuration:timeInterval animations:^{
+        self.tableViewBottom.constant = 50 + CGRectGetHeight(rect);
+        [self.view layoutIfNeeded];
+    }];
+}
 /*
 #pragma mark - Navigation
 

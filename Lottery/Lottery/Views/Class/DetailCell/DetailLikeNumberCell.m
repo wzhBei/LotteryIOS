@@ -18,10 +18,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *n4Textfield;
 @property (weak, nonatomic) IBOutlet UITextField *n5Textfield;
 @property (weak, nonatomic) IBOutlet UITextField *n6Textfield;
+@property (weak, nonatomic) IBOutlet UITextField *countMaxField;
+@property (weak, nonatomic) IBOutlet UITextField *countMinField;
 
 @property (strong, nonatomic) NSArray *textFieldAry;
 @property (strong, nonatomic) NSArray *modelAry;
 @property (weak, nonatomic) IBOutlet UIImageView *checkMark;
+
 
 @end
 
@@ -35,8 +38,11 @@
     self.n4Textfield.keyboardType = UIKeyboardTypeNumberPad;
     self.n5Textfield.keyboardType = UIKeyboardTypeNumberPad;
     self.n6Textfield.keyboardType = UIKeyboardTypeNumberPad;
-    self.textFieldAry = @[self.n1Textfield, self.n2Textfield, self.n3Textfield, self.n4Textfield, self.n5Textfield, self.n6Textfield];
-    
+    self.textFieldAry = @[self.n1Textfield, self.n2Textfield, self.n3Textfield, self.n4Textfield, self.n5Textfield, self.n6Textfield, self.countMinField, self.countMaxField];
+    for (UITextField *textFiled in self.textFieldAry) {
+        textFiled.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Initialization code
 }
 
@@ -47,8 +53,19 @@
     for (int i = 0; i < models.count; i++) {
         UITextField *textField = self.textFieldAry[i];
         FilterCellModel *model = self.modelAry[i];
-        textField.text = [NSString stringWithFormat:@"%ld", model.fixedValue];
-        textField.tag = LuckNumberTagPrefix + model.type;
+        if (model.type == FilterLuckyCount) {
+            self.countMinField.tag = LuckNumberTagPrefix + model.type;
+            self.countMinField.text = [NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%ld", model.min]];
+            
+            self.countMaxField.text = [NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%ld", model.max]];
+            self.countMaxField.delegate = delegate;
+            self.countMaxField.tag = LuckNumberTagPrefix + LuckNumberMaxPrefix + model.type;
+            
+        } else {
+            textField.text = [NSString stringWithFormat:@"%ld", model.fixedValue];
+            textField.tag = LuckNumberTagPrefix + model.type;
+        }
+        
         textField.delegate = delegate;
     }
     self.checkMark.hidden = !isChecked;

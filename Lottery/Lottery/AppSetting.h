@@ -17,7 +17,8 @@ typedef enum {
     FilterNumber3 = 7,
     FilterNumber4 = 8,
     FilterNumber5 = 9,
-    FilterNumber6 = 10
+    FilterNumber6 = 10,
+    FilterLuckyCount = 11
 } FilterType;
 
 typedef enum {
@@ -30,16 +31,19 @@ typedef enum {
 
 #define WEAK_SELF __weak typeof(self) SELF = self
 
-#define SumMax 238
-#define SumMin  28
+#define NumberMin 1
+#define NumberMax 43
 
-#define  CrsMax 36
-#define  CrsMin 6
+#define SumMax 191
+#define SumMin  21
 
-#define  OddMax 7
+#define  CrsMax 42
+#define  CrsMin 5
+
+#define  OddMax 6
 #define  OddMin 0
 
-#define  IntervalMax 31
+#define  IntervalMax 37
 #define  IntervalMin 1
 
 #define  ConMax 6
