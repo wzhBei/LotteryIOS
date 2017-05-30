@@ -7,6 +7,7 @@
 //
 
 #import "ShowBaseFilterCell.h"
+#import "UIColor+Utils.h"
 
 @implementation ShowBaseFilterCell
 
@@ -16,6 +17,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor L_Orange];
     // Initialization code
 }
 

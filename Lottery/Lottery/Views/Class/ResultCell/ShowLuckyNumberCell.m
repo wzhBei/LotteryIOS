@@ -7,6 +7,7 @@
 //
 
 #import "ShowLuckyNumberCell.h"
+#import "UIColor+Utils.h"
 
 @interface ShowLuckyNumberCell()
 
@@ -17,6 +18,10 @@
 
 @implementation ShowLuckyNumberCell
 
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor L_Green];
+}
 
 - (void)updateWithModel:(SelectedFilterCellModel *)model {
     self.model = model;
@@ -54,10 +59,6 @@
     return value;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -8,6 +8,7 @@
 
 #import "DetailLikeNumberCell.h"
 #import "FilterCellModel.h"
+#import "UIColor+Utils.h"
 
 // TODO:追加校验
 @interface DetailLikeNumberCell()
@@ -43,6 +44,7 @@
         textFiled.keyboardType = UIKeyboardTypeNumberPad;
     }
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = [UIColor L_Green];
     // Initialization code
 }
 

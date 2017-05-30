@@ -10,14 +10,14 @@
 #import "LotteryModel.h"
 
 // LocalHost
-static NSString* const HostUrl = @"http://localhost/SpringRestHibernateExample";
+// static NSString* const HostUrl = @"http://localhost/SpringRestHibernateExample";
 
 // 手机创建热点的时候
 //static NSString* const HostUrl = @"http://172.20.10.2/SpringRestHibernateExample";
 
 // 同一个局域网时候
-//static NSString* const HostUrl = @"http://192.168.1.103/SpringRestHibernateExample";
-
+//static NSString* const HostUrl = @"http://172.20.10.6/SpringRestHibernateExample";
+static NSString* const HostUrl = @"http://lucklottery.top/SpringRestHibernateExample";
 static NSString* const GetLottery = @"getLotterys";
 
 @interface ApiManager ()

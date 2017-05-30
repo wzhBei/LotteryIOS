@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"LotoLaboBlueBackground"] forBarMetrics:UIBarMetricsDefault];
     // Do any additional setup after loading the view.
 }
 

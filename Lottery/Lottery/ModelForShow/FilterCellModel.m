@@ -174,6 +174,30 @@
     }
 }
 
+- (NSString *)conditionDescription {
+    switch (self.type) {
+        case FilterTypeSum:
+            return @"-----合計限定-----";
+        case FilterTypeCRS:
+            return @"-----全幅限定-----";
+        case FilterTypeODD:
+            return @"-----奇数限定-----";
+        case FilterTypeINT:
+            return @"-----間隔限定-----";
+        case FilterTypeCON:
+            return @"-----連番限定-----";
+        case FilterNumber1:
+        case FilterNumber2:
+        case FilterNumber3:
+        case FilterNumber4:
+        case FilterNumber5:
+        case FilterNumber6:
+            return [NSString stringWithFormat:@"-----Number%u 限定-----", (self.type - 4)];
+        default:
+            return @"";
+    }
+}
+
 - (NSString *)conditionString {
     switch (self.type) {
         case FilterTypeSum:

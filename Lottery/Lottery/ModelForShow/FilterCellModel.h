@@ -28,4 +28,5 @@
 // 转换成结果画面需要的字符川
 - (NSString *)toResultString;
 
+- (NSString *)conditionDescription;
 @end

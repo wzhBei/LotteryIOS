@@ -17,6 +17,8 @@
 		D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3831EBB6B40006A6BAF /* LotteryModel.m */; };
 		D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */; };
 		D12AF2681EBE12A50058E8A9 /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2671EBE12A50058E8A9 /* AlertHelper.m */; };
+		D1313C401ED08B1A00BD85D5 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D1313C3F1ED08B1A00BD85D5 /* UIColor+Utils.m */; };
+		D1313C441EDC702A00BD85D5 /* ExcludeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1313C431EDC702A00BD85D5 /* ExcludeViewController.m */; };
 		D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */; };
 		D188BF131EC7EA9E0065B8C0 /* ShowBaseFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF121EC7EA9E0065B8C0 /* ShowBaseFilterCell.m */; };
 		D188BF161EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D188BF151EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m */; };
@@ -63,6 +65,10 @@
 		D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableDatasource.m; sourceTree = "<group>"; };
 		D12AF2661EBE12A50058E8A9 /* AlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertHelper.h; sourceTree = "<group>"; };
 		D12AF2671EBE12A50058E8A9 /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
+		D1313C3E1ED08B1A00BD85D5 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		D1313C3F1ED08B1A00BD85D5 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
+		D1313C421EDC702A00BD85D5 /* ExcludeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcludeViewController.h; sourceTree = "<group>"; };
+		D1313C431EDC702A00BD85D5 /* ExcludeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcludeViewController.m; sourceTree = "<group>"; };
 		D188BF0D1EC09E710065B8C0 /* NSNumber+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Utils.h"; sourceTree = "<group>"; };
 		D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Utils.m"; sourceTree = "<group>"; };
 		D188BF111EC7EA9E0065B8C0 /* ShowBaseFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowBaseFilterCell.h; sourceTree = "<group>"; };
@@ -135,6 +141,15 @@
 				D188BF271EC887B10065B8C0 /* FilterCell.xib */,
 			);
 			path = XibStoryboard;
+			sourceTree = "<group>";
+		};
+		D1313C411EDC6FFE00BD85D5 /* ExcludeNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				D1313C421EDC702A00BD85D5 /* ExcludeViewController.h */,
+				D1313C431EDC702A00BD85D5 /* ExcludeViewController.m */,
+			);
+			path = ExcludeNumbers;
 			sourceTree = "<group>";
 		};
 		D188BF101EC7EA210065B8C0 /* ResultCell */ = {
@@ -220,6 +235,7 @@
 		D1A5C7351EACAF5700A220F9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				D1313C411EDC6FFE00BD85D5 /* ExcludeNumbers */,
 				D188BF201EC84E870065B8C0 /* DetailCell */,
 				D188BF101EC7EA210065B8C0 /* ResultCell */,
 				D1A5C7361EACAF5700A220F9 /* CheckFilterViewController.h */,
@@ -260,6 +276,8 @@
 				D1A5C7541EACDFB200A220F9 /* UIStoryboard+Utils.m */,
 				D188BF0D1EC09E710065B8C0 /* NSNumber+Utils.h */,
 				D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */,
+				D1313C3E1ED08B1A00BD85D5 /* UIColor+Utils.h */,
+				D1313C3F1ED08B1A00BD85D5 /* UIColor+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -434,6 +452,7 @@
 				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
+				D1313C401ED08B1A00BD85D5 /* UIColor+Utils.m in Sources */,
 				D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */,
 				D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */,
 				D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */,
@@ -454,6 +473,7 @@
 				D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */,
 				D188BF191EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m in Sources */,
 				D1A5C71D1EACA9B300A220F9 /* main.m in Sources */,
+				D1313C441EDC702A00BD85D5 /* ExcludeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

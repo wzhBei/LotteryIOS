@@ -7,8 +7,10 @@
 //
 
 #import "FilterCell.h"
+#import "UIColor+Utils.h"
 
 @interface FilterCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
     @property (weak, nonatomic) IBOutlet UIImageView *checkMark;
     @property (weak, nonatomic) IBOutlet UITextField *maxTextField;
     @property (weak, nonatomic) IBOutlet UITextField *MinTextField;
@@ -25,6 +27,7 @@
     self.MinTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    self.commitButton.layer.cornerRadius = 6.0f;
 }
 
 - (IBAction)showResultAction:(id)sender {
@@ -38,10 +41,15 @@
        showCommitButton:(BOOL)showButton {
     self.model = model;
 
+    if ([@[@(FilterTypeSum), @(FilterTypeCRS), @(FilterTypeODD), @(FilterTypeINT), @(FilterTypeCON)] containsObject:@(self.model.type)]) {
+        self.backgroundColor = [UIColor L_Orange];
+    } else {
+        self.backgroundColor = [UIColor L_Blue];
+    }
     self.maxTextField.text = [NSString stringWithFormat:@"%ld", model.max];
     self.MinTextField.text = [NSString stringWithFormat:@"%ld", model.min];
     self.checkMark.hidden = !model.isChecked;
-    
+    self.titleLabel.text = model.conditionDescription;
     self.commitButton.hidden = !showButton;
     if (showButton) {
         [self.commitButton setTitle:[self buttonTitle] forState:UIControlStateNormal];

@@ -122,7 +122,7 @@
     if (indexPath.row >= self.datasource.count) {
         return UITableViewAutomaticDimension;
     }
-    return 156;
+    return 150;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

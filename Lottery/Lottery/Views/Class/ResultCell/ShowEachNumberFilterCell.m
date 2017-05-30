@@ -7,6 +7,7 @@
 //
 
 #import "ShowEachNumberFilterCell.h"
+#import "UIColor+Utils.h"
 
 @interface ShowEachNumberFilterCell()
 
@@ -16,6 +17,11 @@
 @end
 
 @implementation ShowEachNumberFilterCell
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor L_Blue];
+}
 
 - (void)updateWithModel:(SelectedFilterCellModel *)model {
     self.model = model;
@@ -61,11 +67,6 @@
     return _eachNumberTitles;
 }
 
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
