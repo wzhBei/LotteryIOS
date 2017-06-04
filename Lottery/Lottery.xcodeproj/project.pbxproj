@@ -42,6 +42,9 @@
 		D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C74E1EACC50F00A220F9 /* FilterTableDatasource.m */; };
 		D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C7511EACDF4600A220F9 /* ResultViewController.m */; };
 		D1A5C7551EACDFB200A220F9 /* UIStoryboard+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A5C7541EACDFB200A220F9 /* UIStoryboard+Utils.m */; };
+		D1ECD6E31EE4474000AB27A8 /* AddExcludedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ECD6E21EE4474000AB27A8 /* AddExcludedViewController.m */; };
+		D1ECD6E91EE44A1100AB27A8 /* NGNumbersContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ECD6E81EE44A1100AB27A8 /* NGNumbersContentCell.m */; };
+		D1ECD6EC1EE44A1E00AB27A8 /* NGNumbersAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1ECD6EB1EE44A1E00AB27A8 /* NGNumbersAddCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,12 @@
 		D1A5C7511EACDF4600A220F9 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		D1A5C7531EACDFB200A220F9 /* UIStoryboard+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+Utils.h"; sourceTree = "<group>"; };
 		D1A5C7541EACDFB200A220F9 /* UIStoryboard+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+Utils.m"; sourceTree = "<group>"; };
+		D1ECD6E11EE4474000AB27A8 /* AddExcludedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExcludedViewController.h; sourceTree = "<group>"; };
+		D1ECD6E21EE4474000AB27A8 /* AddExcludedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExcludedViewController.m; sourceTree = "<group>"; };
+		D1ECD6E71EE44A1100AB27A8 /* NGNumbersContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGNumbersContentCell.h; sourceTree = "<group>"; };
+		D1ECD6E81EE44A1100AB27A8 /* NGNumbersContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGNumbersContentCell.m; sourceTree = "<group>"; };
+		D1ECD6EA1EE44A1E00AB27A8 /* NGNumbersAddCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGNumbersAddCell.h; sourceTree = "<group>"; };
+		D1ECD6EB1EE44A1E00AB27A8 /* NGNumbersAddCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGNumbersAddCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +157,12 @@
 			children = (
 				D1313C421EDC702A00BD85D5 /* ExcludeViewController.h */,
 				D1313C431EDC702A00BD85D5 /* ExcludeViewController.m */,
+				D1ECD6E11EE4474000AB27A8 /* AddExcludedViewController.h */,
+				D1ECD6E21EE4474000AB27A8 /* AddExcludedViewController.m */,
+				D1ECD6E71EE44A1100AB27A8 /* NGNumbersContentCell.h */,
+				D1ECD6E81EE44A1100AB27A8 /* NGNumbersContentCell.m */,
+				D1ECD6EA1EE44A1E00AB27A8 /* NGNumbersAddCell.h */,
+				D1ECD6EB1EE44A1E00AB27A8 /* NGNumbersAddCell.m */,
 			);
 			path = ExcludeNumbers;
 			sourceTree = "<group>";
@@ -451,7 +466,9 @@
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
 				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
+				D1ECD6E31EE4474000AB27A8 /* AddExcludedViewController.m in Sources */,
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
+				D1ECD6EC1EE44A1E00AB27A8 /* NGNumbersAddCell.m in Sources */,
 				D1313C401ED08B1A00BD85D5 /* UIColor+Utils.m in Sources */,
 				D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */,
 				D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */,
@@ -472,6 +489,7 @@
 				D188BF161EC7EBF20065B8C0 /* ShowEachNumberFilterCell.m in Sources */,
 				D1A5C74F1EACC50F00A220F9 /* FilterTableDatasource.m in Sources */,
 				D188BF191EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m in Sources */,
+				D1ECD6E91EE44A1100AB27A8 /* NGNumbersContentCell.m in Sources */,
 				D1A5C71D1EACA9B300A220F9 /* main.m in Sources */,
 				D1313C441EDC702A00BD85D5 /* ExcludeViewController.m in Sources */,
 			);

@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ExcludeViewController : BaseViewController
+@interface ExcludeViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
