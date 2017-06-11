@@ -13,6 +13,9 @@
 		BEF79D401ECD4EC400FF0F6F /* SelectedFilterCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D3F1ECD4EC400FF0F6F /* SelectedFilterCellModel.m */; };
 		BEF79D431ECD726100FF0F6F /* SelectedConditionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D421ECD726100FF0F6F /* SelectedConditionDatasource.m */; };
 		BEF79D461ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF79D451ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m */; };
+		D10187A01EED26510023DE00 /* RLMNGNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D101879F1EED26510023DE00 /* RLMNGNumber.m */; };
+		D10187A31EED26CB0023DE00 /* RLMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D10187A21EED26CB0023DE00 /* RLMManager.m */; };
+		D10187A61EED2FD80023DE00 /* RLMResults+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D10187A51EED2FD80023DE00 /* RLMResults+Utils.m */; };
 		D105D3811EBB6A83006A6BAF /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3801EBB6A83006A6BAF /* ResultCell.m */; };
 		D105D3841EBB6B40006A6BAF /* LotteryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D105D3831EBB6B40006A6BAF /* LotteryModel.m */; };
 		D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D12AF2641EBE0B820058E8A9 /* ResultTableDatasource.m */; };
@@ -60,6 +63,12 @@
 		BEF79D421ECD726100FF0F6F /* SelectedConditionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedConditionDatasource.m; sourceTree = "<group>"; };
 		BEF79D441ECD75FF00FF0F6F /* ConditionTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionTitleTableViewCell.h; sourceTree = "<group>"; };
 		BEF79D451ECD75FF00FF0F6F /* ConditionTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionTitleTableViewCell.m; sourceTree = "<group>"; };
+		D101879E1EED26510023DE00 /* RLMNGNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMNGNumber.h; sourceTree = "<group>"; };
+		D101879F1EED26510023DE00 /* RLMNGNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLMNGNumber.m; sourceTree = "<group>"; };
+		D10187A11EED26CB0023DE00 /* RLMManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMManager.h; sourceTree = "<group>"; };
+		D10187A21EED26CB0023DE00 /* RLMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLMManager.m; sourceTree = "<group>"; };
+		D10187A41EED2FD80023DE00 /* RLMResults+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMResults+Utils.h"; sourceTree = "<group>"; };
+		D10187A51EED2FD80023DE00 /* RLMResults+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMResults+Utils.m"; sourceTree = "<group>"; };
 		D105D37F1EBB6A83006A6BAF /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
 		D105D3801EBB6A83006A6BAF /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 		D105D3821EBB6B40006A6BAF /* LotteryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryModel.h; sourceTree = "<group>"; };
@@ -150,6 +159,15 @@
 				D188BF271EC887B10065B8C0 /* FilterCell.xib */,
 			);
 			path = XibStoryboard;
+			sourceTree = "<group>";
+		};
+		D101879D1EED26030023DE00 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				D101879E1EED26510023DE00 /* RLMNGNumber.h */,
+				D101879F1EED26510023DE00 /* RLMNGNumber.m */,
+			);
+			name = RealmModel;
 			sourceTree = "<group>";
 		};
 		D1313C411EDC6FFE00BD85D5 /* ExcludeNumbers */ = {
@@ -280,6 +298,8 @@
 				D1A5C74A1EACC28D00A220F9 /* SelectedFilterManager.m */,
 				D12AF2661EBE12A50058E8A9 /* AlertHelper.h */,
 				D12AF2671EBE12A50058E8A9 /* AlertHelper.m */,
+				D10187A11EED26CB0023DE00 /* RLMManager.h */,
+				D10187A21EED26CB0023DE00 /* RLMManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -293,6 +313,8 @@
 				D188BF0E1EC09E710065B8C0 /* NSNumber+Utils.m */,
 				D1313C3E1ED08B1A00BD85D5 /* UIColor+Utils.h */,
 				D1313C3F1ED08B1A00BD85D5 /* UIColor+Utils.m */,
+				D10187A41EED2FD80023DE00 /* RLMResults+Utils.h */,
+				D10187A51EED2FD80023DE00 /* RLMResults+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -300,6 +322,7 @@
 		D1A5C7451EACC17100A220F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D101879D1EED26030023DE00 /* RealmModel */,
 				D1A5C7461EACC18A00A220F9 /* FilterCellModel.h */,
 				D1A5C7471EACC18A00A220F9 /* FilterCellModel.m */,
 				BE0E31131EBCA56E00C715B3 /* FilterIntegerModel.h */,
@@ -463,6 +486,7 @@
 				BE0E31151EBCA56E00C715B3 /* FilterIntegerModel.m in Sources */,
 				D188BF261EC85EB20065B8C0 /* BaseViewController.m in Sources */,
 				BEF79D401ECD4EC400FF0F6F /* SelectedFilterCellModel.m in Sources */,
+				D10187A31EED26CB0023DE00 /* RLMManager.m in Sources */,
 				D1A5C73E1EACB04800A220F9 /* ApiManager.m in Sources */,
 				D188BF0F1EC09E710065B8C0 /* NSNumber+Utils.m in Sources */,
 				D1A5C7481EACC18A00A220F9 /* FilterCellModel.m in Sources */,
@@ -470,6 +494,7 @@
 				D1A5C7441EACBF1700A220F9 /* FilterCell.m in Sources */,
 				D1ECD6EC1EE44A1E00AB27A8 /* NGNumbersAddCell.m in Sources */,
 				D1313C401ED08B1A00BD85D5 /* UIColor+Utils.m in Sources */,
+				D10187A01EED26510023DE00 /* RLMNGNumber.m in Sources */,
 				D12AF2651EBE0B820058E8A9 /* ResultTableDatasource.m in Sources */,
 				D188BF1C1EC7ECCF0065B8C0 /* CheckDetailFilterViewController.m in Sources */,
 				D1A5C7521EACDF4600A220F9 /* ResultViewController.m in Sources */,
@@ -491,6 +516,7 @@
 				D188BF191EC7EC0E0065B8C0 /* ShowLuckyNumberCell.m in Sources */,
 				D1ECD6E91EE44A1100AB27A8 /* NGNumbersContentCell.m in Sources */,
 				D1A5C71D1EACA9B300A220F9 /* main.m in Sources */,
+				D10187A61EED2FD80023DE00 /* RLMResults+Utils.m in Sources */,
 				D1313C441EDC702A00BD85D5 /* ExcludeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

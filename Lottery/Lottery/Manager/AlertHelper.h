@@ -27,4 +27,6 @@ SINGLETON_DEFINE(AlertHelper);
 
 - (void)showLuckFilterInvalidAlert;
 
+- (UIAlertController *)oldNuberValidAlertOk:(void(^)())okAction;
+
 @end

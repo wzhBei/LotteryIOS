@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *const NGNumbersAddCellIdentifier;
+static NSString *const NGNumbersAddCellIdentifier = @"NGNumbersAddCell";
 
 // height 69
 @interface NGNumbersAddCell : UITableViewCell

@@ -24,6 +24,9 @@ SINGLETON_IMPL(AlertHelper);
     } cancel:nil];
 }
 
+- (UIAlertController *)oldNuberValidAlertOk:(void(^)())okAction {
+    return [self alertWithTitle:@"注意" message:@"昇順で全部数字をご入力してください。" ok:okAction cancel:nil];
+}
 
 - (void)showAlertWithTitle:(NSString *)title
                    message:(NSString *)message
@@ -49,8 +52,30 @@ SINGLETON_IMPL(AlertHelper);
     }
     
     [[self rootNavigationController] presentViewController:alertController animated:YES completion:nil];
-    
 }
+
+- (UIAlertController *)alertWithTitle:(NSString *)title
+                   message:(NSString *)message
+                        ok:(void(^)())okAction
+                    cancel:(void(^)())cancelAction {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    if (okAction) {
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            okAction();
+        }];
+        [alertController addAction:ok];
+    }
+    
+    if (cancelAction) {
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            cancelAction();
+            
+        }];
+        [alertController addAction:cancel];
+    }
+    return alertController;
+}
+
 
 - (void)showHud {
     [MBProgressHUD showHUDAddedTo:[self windowView] animated:YES];

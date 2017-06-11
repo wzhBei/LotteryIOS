@@ -14,6 +14,7 @@
 #import "AlertHelper.h"
 #import "ResultViewController.h"
 #import "UIStoryboard+Utils.h"
+#import "ExcludeViewController.h"
 
 @interface CheckDetailFilterViewController ()
 
@@ -139,6 +140,11 @@
         [dic addEntriesFromDictionary:[model toConditionDic]];
     }
     return dic;
+}
+
+- (IBAction)toNGNumberView:(id)sender {
+    ExcludeViewController *vc = (ExcludeViewController *)[UIStoryboard createVCWithStroyboardName:@"Main" identifier:@"ExcludeViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)showMultipleResult:(id)sender {

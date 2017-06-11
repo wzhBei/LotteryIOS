@@ -18,6 +18,8 @@ SINGLETON_DEFINE(SelectedFilterManager);
 
 @property (strong, nonatomic) NSArray *allDetailSelections;
 
+@property (strong, nonatomic) NSArray *allExcluedSelections;
+
 @property (strong, nonatomic) NSArray *allLucknumbers;
 @property (assign, nonatomic) BOOL luckyNumberSelected;
 @property (assign, nonatomic) BOOL luckyNumbersValid;
